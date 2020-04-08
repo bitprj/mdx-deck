@@ -49,9 +49,9 @@ const h1 = ({ children }) => (
   <h1
     sx={{
       variant: 'text.heading',
-      fontFamily: '"TitlingGothicFB Normal", sans-serif',
+      fontFamily: '"Poppins", sans-serif',
       lineHeight: '1.2em',
-      fontSize: '4em',
+      fontSize: '53.3px',
       mt: 0,
       mb: 4,
       '> *': {
@@ -78,9 +78,9 @@ const h2 = ({ children }) => (
     sx={{
       variant: 'text.heading',
       maxWidth: '60%',
-      fontFamily: '"TitlingGothicFB Normal", sans-serif',
+      fontFamily: '"Poppins", sans-serif',
       lineHeight: '1.2em',
-      fontSize: '3em',
+      fontSize: '20px',
       mt: 0,
       mb: 2,
       '> *': {
@@ -113,17 +113,20 @@ export default {
     primary: '#ccb6ff',
     secondary: '#f0647d',
     tertiary: '#f09a64',
-    muted: '#acacac'
+    muted: '#acacac',
+    headings: '#0086FF', //BP
+    subheadings: '#0086FF', //BP
+    highlights: '#febd0032' //BP
   },
   fonts: {
-    heading: '"Neue Haas Unica W1G", sans-serif',
-    body: '"Neue Haas Unica W1G", sans-serif',
-    monospace: '"iA Writer Quattro S", monospace'
+    heading: '"Poppins", sans-serif',
+    body: '"Work Sans", sans-serif',
+    monospace: '"Work Sans", monospace'
   },
   fontWeights: {
-    heading: 400,
+    heading: 700,
     body: 400,
-    bold: 600
+    bold: 700
   },
 
   components: {
@@ -158,7 +161,7 @@ export default {
       fontSize: '26px'
     },
     p: {
-      fontSize: '18px'
+      fontSize: '18.7px'
     },
     em: {
       fontStyle: 'normal',
