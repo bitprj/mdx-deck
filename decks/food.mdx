@@ -16,36 +16,92 @@ export const theme = customTheme;
 
 ---
 
+## What is a ChatBot?
+
+---
+<L.Row>
+
+## ChatBot
+
+### A computer program that simulates and processes human conversation, allowing humans to interact with digital devices as if they were communicating with a real person.
+
+</L.Row>
+
+---
+
+## Why we need a ChatBot?
+
+---
+
+## Never miss a chance to engage with your friends or users
+
+---
+
+## How to start?
+
+---
 <L.Row>
 
 ## Google DialogFlow
 
-### A platform that provides a use-case specific, engaging voice and text-based conversations
+### "Dialogflow (formerly Api.ai, Speaktoit) is a Google-owned developer of human–computer interaction technologies based on natural language conversations."
 
+<Notes>
+
+- There are so many tools, why DiagFlow ?
+
+</Notes>
 
 </L.Row>
-
----
-
-<L.Column>
-
-## What is DialogFlow?
-
--  A tool that allows you to make bots that understand human conversation
--  Makes Natural language understanding easier
--  You can use your bot on any platform! 
-
-</L.Column>
 
 ---
 
 <L.Row>
 
-## Agent
+- Built-in natural-language processing (NLP)
+- Machine learning
+- On any platform
+- Offers cross-device support
+- supports 20+ languages
 
-### The face of your bot
+## DialogFlow
+
+<Notes>
+- Use machine learning to understand what users are saying
+- Build Actions, Skills, bots, and apps for the Google Assistant, Alexa, Cortana, Facebook Messenger and other platforms your users are on.
+- wearables, phones, cars, speakers and other smart devices
+- Give users new ways to interact with your product by building engaging voice and text-based conversational interfaces,
+  such as voice apps and chatbots, powered by AI. 
+  Connect with users on your website, mobile app, the Google Assistant, Amazon Alexa, Facebook Messenger, and other popular platforms and devices.
+
+</Notes>
 
 </L.Row>
+
+---
+
+# Let’s get started
+
+---
+<L.Column>
+
+## Agent
+
+### The face of your bot.
+
+#### Connects to your backend and provides it with business logic.
+
+#### Is made up of intents
+
+<Notes>
+
+- DialogFlow allows you to make NLU modules, called agents (basically the face of your bot). 
+This agent connects to your backend and provides it with business logic.
+-An agent is made up of intents. what is intents?
+
+</Notes>
+
+</L.Column>
 
 ---
 
@@ -53,20 +109,45 @@ export const theme = customTheme;
 
 ## Intent
 
-### Actions that a user can perform on your agent, how to respond 
+### Intents are simply actions that a user can perform on your agent. It maps what a user says to what action should be taken.
+
+#### “What’s the weather like in Davis today?”
+
+<Notes>
+
+- They’re entry points into a conversation.
+- In short, a user may request the same thing in many ways, re-structuring their sentences. But in the end, they should all resolve to a single intent.
+- Examples of intents can be: “What’s the weather like in Davis today?” or “What is the recipe for an omelet?”
+- You can create as many intents as your business logic desires, and even co-relate them, using contexts. An intent decides what API to call, with what parameters, and how to respond back, to a user’s request.
+
+</Notes>
 
 </L.Row>
 
 ---
 
-<L.Column>
+<L.Row>
 
-## Entity - keywords
-- Dates
-- Events
-- Distance
+## Entity 
 
-</L.Column>
+### The values to extract from a given user’s input (keywords)
+
+#### Dates, events, distance
+
+</L.Row>
+
+<Notes>
+
+- An agent wouldn’t know what values to extract from a given user’s input. 
+ This is where entities come into play. 
+ Any information in a sentence, critical to your business logic, will be an entity. 
+ This includes stuff like dates, distance, currency, etc. 
+ There are system entities, provided by DialogFlow for simple things like numbers and dates. 
+ And then there are developer defined entities. 
+ For example, “category”, for a bot about Pokemon! We’ll dive into how to make a custom developer entity further in the post.
+
+</Notes>
+
 
 ---
 
@@ -76,12 +157,41 @@ export const theme = customTheme;
 
 ### A context-aware bot can remember things, and hold conversations
  
+<Notes>
+
+- Final concept before we can get started with coding is “Context”. 
+  This is what makes the bot truly conversational. 
+  A context-aware bot can remember things, and hold a conversation like humans do.
+  Consider the following conversation:
+
+</Notes>
+
 </L.Row>
 
 ---
 
 <Background />
-<L.Column sx={{ minHeight: '0' }}>
+
+“Hey, are you coming for piano practice tonight?”  
+
+“Sorry, I’ve got dinner plans.”  
+
+“Okay, what about tomorrow night then?”  
+
+“That works!”
+
+<Notes>
+
+- Did you notice what just happened? The first question is straightforward to parse: The time is “tonight”, and the event, “piano practice”.
+ However, the second question, “Okay, what about tomorrow night then?” doesn’t specify anything about the actual event. 
+ It’s implied that we’re talking about “piano practice”. 
+ This sort of understanding comes naturally to us humans, but bots have to be explicitly programmed so that they understand the context across these sentences.
+
+</Notes>
+
+---
+
+<L.Column>
 
 ## Let’s get started!
 
@@ -92,9 +202,10 @@ export const theme = customTheme;
 ---
 
 <Background />
+
 <L.Column sx={{ minHeight: '0' }}>
 
-## Creating an Agent
+## 1. Creating an Agent
 - Log in to the DialogFlow dashboard using your Google account.
 - Click on “Create Agent”
 - Enter the name of the agent, and hit “Create”.
@@ -103,38 +214,53 @@ export const theme = customTheme;
 
 ---
 
-![alt](https://miro.medium.com/max/1352/1*YtoDfzRkmQKZQ1ZF5grlqg.png)
+import chatbot1 from '../chatbot_img/1.png';
+
+<img src={chatbot1} />
 
 ---
 
 <Background />
 <L.Column sx={{ minHeight: '0' }}>
 
-## Setting up a “Welcome” Intent
+## 2. Setting up a “Welcome” Intent
 - Go ahead and click on the “Default Welcome Intent”. 
 
 </L.Column>
 
 ---
 
-![alt](https://miro.medium.com/max/1338/1*17fJvpbsXDEiJS27c-SQ3Q.png)
+import chatbot21 from '../chatbot_img/2_welcome intent.png';
+
+<img src={chatbot21} />
+
 
 ---
+
 - Fill in user says as below
-![alt](https://miro.medium.com/max/1286/1*oVhd4vtHRX2wdmzQhyHXKA.png)
+
+import chatbot22 from '../chatbot_img/2_2.png';
+
+<img src={chatbot22} />
+
 
 ---
+
 - Scroll down to the “Responses” tab
 - Delete the welcome messages
 - Fill in "Responses" as below
 - Click "Save"
-![alt](https://miro.medium.com/max/1274/1*XQP5t-xjET-cOyScUOvbIA.png)
+
+import chatbot23 from '../chatbot_img/2_3.png';
+
+<img src={chatbot23} />
+
 
 ---
 
 <L.Row>
 
-## Creating a Custom Entity
+## 3. Creating a Custom Entity
 
 ### Entities are what we extract from user’s input to process further
 
@@ -147,13 +273,17 @@ export const theme = customTheme;
 - Click on the “Entities” tab on left-sidebar and click “Create Entity”
 - Name our Entity “content”
 - Fill in the following details
-![alt](https://miro.medium.com/max/1340/1*tqgTKE81ygcZixwgjgbIQA.png)
+
+import chatbot31 from '../chatbot_img/3_Entity.png';
+
+<img src={chatbot31} />
+
 
 ---
 
 <L.Row>
 
-## Attaching our new Entity to the Intent
+## 4. Attaching our new Entity to the Intent
 ### Create a new Intent called “say-content”
 
 </L.Row>
@@ -164,34 +294,101 @@ export const theme = customTheme;
 
 - Add the phrase “Let’s hear a joke” in the “User Says” section
 
-![alt](https://miro.medium.com/max/1298/1*m5SljbVUh7sXCRrGd9gnaw.png)
+import chatbot32 from '../chatbot_img/3_2.png';
+
+<img src={chatbot32} />
+
 
 ---
 - Let’s add a few more inputs
 
-![alt](https://miro.medium.com/max/1260/1*QkVnOdZDf2ytVWLOACXNrw.png)
+import chatbot33 from '../chatbot_img/3_3.png';
+
+<img src={chatbot33} />
+
 
 ---
 - Let’s add a placeholder text response to see it work
 - scroll to the bottom section “Response”, and fill it like so
 
-![alt](https://miro.medium.com/max/1264/1*JRZ2LQF9H9gIOV0kofT_tA.png)
+import chatbot34 from '../chatbot_img/3_4.png';
+
+<img src={chatbot34} />
+
 
 ---
 - Click on “Try It Now” to test your work
-- ![alt](https://miro.medium.com/max/734/1*XbwTQ0aJJze7P1yYQiSU1Q.png)
+
+import chatbot35 from '../chatbot_img/3_5.png';
+
+<img src={chatbot35} />
+
 
 ---
 
 <L.Column>
 
-# A Webhook to process requests
+# 5. A Webhook to process requests
 - Write a JS app that fulfills the request by querying the Reddit’s website and returning the appropriate content.
 
 </L.Column>
 
 ---
- # code
+# code
+---
+
+<CodeSurfer>
+
+​```js
+'use strict';
+const http = require('https');
+exports.appWebhook = (req, res) => {
+ let content = req.body.result.parameters['content'];
+ getContent(content).then((output) => {
+   res.setHeader('Content-Type', 'application/json');
+   res.send(JSON.stringify({ 'speech': output, 'displayText': output    }));
+ }).catch((error) => {
+   // If there is an error let the user know
+   res.setHeader('Content-Type', 'application/json');
+   res.send(JSON.stringify({ 'speech': error, 'displayText': error     }));
+ });
+};
+function getSubreddit (content) {
+ if (content == "funny" || content == "joke" || content == "laugh")
+   return {sub: "jokes", displayText: "joke"};
+   else {
+     return {sub: "todayILearned", displayText: "fact"};
+   }
+}
+function getContent (content) {
+ let subReddit = getSubreddit(content);
+ return new Promise((resolve, reject) => {
+   console.log('API Request: to Reddit');
+   http.get(`https://www.reddit.com/r/${subReddit["sub"]}/top.json?sort=top&t=day`, (resp) => {
+     let data = '';
+     resp.on('data', (chunk) => {
+       data += chunk;
+     });
+     resp.on('end', () => {
+       let response = JSON.parse(data);
+       let thread = response["data"]["children"][(Math.floor((Math.random() * 24) + 1))]["data"];
+       let output = `Here's a ${subReddit["displayText"]}: ${thread["title"]}`;
+       if (subReddit['sub'] == "jokes") {
+         output += " " + thread["selftext"];
+       }
+       output += "\nWhat do you want to hear next, a joke or a fact?"
+       console.log(output);
+       resolve(output);
+     });
+   }).on("error", (err) => {
+     console.log("Error: " + err.message);
+     reject(error);
+   });
+ });
+}
+​```
+</CodeSurfer>
+
 ---
 
 <L.Column>
@@ -209,25 +406,41 @@ $ gcloud beta functions deploy appWebHook — stage-bucket BUCKET_NAME — trigg
 ---
 - On the Dialoglow platform, find the “Fulfilment” tab on the sidebar
 - Enable webhooks and paste in the URL
-![alt](https://miro.medium.com/max/1304/1*OfM33HGzMKT7KdQ3_NAbsA.png)
+
+import chatbot41 from '../chatbot_img/4-webhook.png';
+
+<img src={chatbot41} />
 
 ---
 - Visit the “say_content” Intent page
 - Make the “content” parameter mandatory.
-![alt](https://miro.medium.com/max/1278/1*WjmH2nK1eMI6Y_GxqMz8mg.png)
+
+import chatbot42 from '../chatbot_img/4_2.png';
+
+<img src={chatbot42} />
+
 ---
 - Enable the “Use webhook” checkbox in “Fulfilment”
 - Click "save" and test it out 
-![alt](https://miro.medium.com/max/1282/1*2YgXKe9vTFuKFC5LISKBxQ.png)
+
+import chatbot43 from '../chatbot_img/4_3.png';
+
+<img src={chatbot43} />
+
 ---
 
 <L.Column>
 
-## Adding Context to our Bot
+## 6. Adding Context to our Bot
 
 - “More”  
 - “More please”
 - “Give me another one”
+
+<Notes>
+- Even though this works perfectly fine, there’s one more thing I’d like to add quickly. We want the user to be able to say, “More” or “Give me another one” and the bot to be able to understand what this means.
+ This is done by emitting and absorbing contexts between intents.
+</Notes>
 
 </L.Column>
 
@@ -245,25 +458,42 @@ $ gcloud beta functions deploy appWebHook — stage-bucket BUCKET_NAME — trigg
 
 - Create new content 
 
-![alt](https://miro.medium.com/max/1272/1*AiCE8PiKuXtM6idxXX-kUA.png)
+import chatbot51 from '../chatbot_img/5_add context.png';
+
+<img src={chatbot51} />
 
 ---
 
-![alt](https://miro.medium.com/max/1288/1*Kb08-hg0r8IyMSqagup_3g.png)
+import chatbot52 from '../chatbot_img/5_2.png';
+
+<img src={chatbot52} />
 
 ---
 <L.Row>
 
-## Integrations.
+## 7. Integrations.
 
 ### Using the Web Demo.
 - Go to “Integrations” tab from the sidebar and enable “Web Demo” settings
+
+<Notes>
+- Dialogflow provides integrations with probably every messaging service in Silicon Valley, and more. 
+  But we’ll use the Web Demo. Go to “Integrations” tab from the sidebar and enable “Web Demo” settings. 
+  Your bot should work like this
+</Notes>
 
 </L.Row>
 
 ---
 
-![alt](https://miro.medium.com/max/1400/1*KielXkMS40_mfivzNABo8w.png)
+import chatbot61 from '../chatbot_img/6_Integrations.png';
+
+<img src={chatbot61} />
+
+<Notes>
+- And that’s it! Your bot is ready to face a real person! Now, you can easily keep adding more subreddits, like news, sports, bodypainting, dankmemes or whatever your hobbies in life are! 
+Or make it understand a few more parameters.For example, “A joke about Donald Trump”.
+</Notes>
 
 ---
 
@@ -286,16 +516,19 @@ $ gcloud beta functions deploy appWebHook — stage-bucket BUCKET_NAME — trigg
 
 ## Review
 
-### What we accomplished and how we did it.
+- Agent
+- Intent
+- Entity
+- Context
+- Connect them
 
 </L.Row>
 
 ---
 
-<L.Row>
+## Any Questions? 
+
+---
 
 ## Thank you!
 
-### Questions and Answers
-
-</L.Row>
