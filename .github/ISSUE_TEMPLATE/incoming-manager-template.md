@@ -8,3 +8,5 @@ assignees: ''
 ---
 
 Goal: create a 30-60 minute interactive, fun and relatable presentation in MDX-Deck, on any set of modules covered on our road map in this topic: ____
+
+**Presentation Day**:
