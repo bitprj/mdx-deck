@@ -35,6 +35,10 @@ import codesandbox from '../assets/codesandbox.jpg';
 
 <Notes>
 use a bit.ly link for the codesandbox link
+
+If everyone can go to code.sandbox and make this PREMADE template (TB done), it should automatically start a development server and you should see a website to the left. 
+
+The website has a bunch of preloaded data for you so what we will do is practice running queries. After I will show you how to make a graphQL Api. 
 </Notes>
 
 ---
@@ -60,11 +64,31 @@ We will be using several tools
 
 ---
 
+# What are API's and why are they important? 
+
+<Notes>
+SN: An API is essentially an endpoint in which we can make a request to retrieve data. 
+
+If you are familiar with API's, I'm sure you've used fetch and axios to retrieve data from API's, The syntax looks something like this and its a lot to type out. 
+
+You get a bunch of data and now its up to you to parse through it.
+
+But what if there was an easier way? 
+
+What I want to introduce everyone to is GraphQL, a a query language for API's. In essence, graphQL allows us to format our data exactly how we want it, query for specific data, and then get an easy return value. 
+</Notes>
+
+---
+
 # What is GraphQL?
 GraphQL is a data query 
 and manipulation language for APIs, 
 and a runtime for fulfilling queries 
 with existing data.
+
+<Notes>
+In this workshop, we will be showing you how to write a schema for a graphQL API, how to query data from that API, and make use of the information. Lastly, we will be putting our skills and knowledge to the test with a word puzzle game. 
+</Notes>
 
 ---
 
@@ -90,10 +114,13 @@ Demo GraphiQL and explorer, querying, mutations
 
 # Using GraphiQL
 GraphiQL is the GraphQL IDE
-access it when the site's dev server is running
+We can access it when the site's dev server is running
 usually at http://localhost:8000/___graphql (3 underscores)
 
 <Notes>
+Go to your development server and add /__graphql to the end and we should get something like so pop up. 
+
+
 use GraphiQL to explore and see all the data you have access to
 you can interactively construct full queries by clicking through
 available fields and inputs
@@ -104,6 +131,12 @@ after you construct your query, you simply can copy and paste
 
 # Basic Query
 
+<Steps>
+1. 
+2.
+3. 
+</Steps>
+
 <Notes>
 At its simplest, GraphQL is about asking for specific fields on 
 objects. Let's start by looking at a very simple query and 
@@ -112,6 +145,18 @@ query has exactly the same shape as the result.
 This is essential to GraphQL, because you always get back what 
 you expect, and the server knows exactly what fields the client 
 is asking for.
+
+In the website, there is a preloaded dataset for you that you can simply query from. The database is called recipe, and in the database there is a collection called movie. We can query through the list of movies and look for title and id.
+
+And as I told you, the result comes back in a very clean and crisp manner like so. 
+
+However, our database has more than just one movie in it. In fact, if I change the query to...
+
+We get a bunch of movies! 
+
+Now that we understand a query, a question you might have is, "How do I know what to search for". In fact, when designing graphql, we can choose to format our data exactly the way we want to but that will be covered when talking about making a graphQL api. 
+
+For now, let's take the opportunity to explore the graphQL docs! 
 </Notes>
 
 ---
@@ -123,6 +168,12 @@ Crossword puzzle
 ---
 
 # Mutations
+
+<Steps>
+1.
+2.
+3.
+</Steps>
 
 <Notes>
 Mutations are used to modify server-side data
