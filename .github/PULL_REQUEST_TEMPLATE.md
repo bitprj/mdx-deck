@@ -1,6 +1,6 @@
 **If you are an incoming manager, please mark your pull request with the label new-manager-task and close your assigned issue.**
 #### Code Sandbox URL
-_This sandbox should contain the most up-to-date version of your head/manager's work. Please make sure everything in your Sandbox is committed and pushed to your branch._ 
+_This sandbox should contain the most up-to-date version of your head/manager's work. **This sandbox should be a template sandbox**, not a live sandbox. Please make sure everything in your Sandbox is committed and pushed to your branch._ 
 
 URL: ___
 
