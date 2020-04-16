@@ -7,27 +7,23 @@ import GreetingLoader from "./src/greeting-loader";
 
 export const theme = customTheme;
 
-# title
-default
-<p>p</p>
-<h1>h1</h1>
-<h2>h2</h2>
-<h3>h3</h3>
-
----
-
 # GraphQL
 
 ---
 
+<L.Row>
+
 # Presenters
-<h2>Jeff Chenn and Louman Cheung</h2>
+## Jeff Chenn and Louman Cheung
+### 
+
+</L.Row>
 
 ---
 
-We will be using CodeSandbox, an in-browser IDE
-1. Please go to https://codesandbox.io/s/github/bitprj/mdx-deck
-2. Click File -> Fork Sandbox
+<p>We will be using CodeSandbox, an in-browser IDE</p>
+<p>1. Please go to https://codesandbox.io/s/github/bitprj/mdx-deck</p>
+<p>2. Click File -> Fork Sandbox</p>
 
 import codesandbox from '../assets/codesandbox.jpg';
 
@@ -120,7 +116,6 @@ usually at http://localhost:8000/___graphql (3 underscores)
 <Notes>
 Go to your development server and add /__graphql to the end and we should get something like so pop up. 
 
-
 use GraphiQL to explore and see all the data you have access to
 you can interactively construct full queries by clicking through
 available fields and inputs
@@ -146,6 +141,8 @@ This is essential to GraphQL, because you always get back what
 you expect, and the server knows exactly what fields the client 
 is asking for.
 
+*** switch to screen share to demo GraphQL ***
+
 In the website, there is a preloaded dataset for you that you can simply query from. The database is called recipe, and in the database there is a collection called movie. We can query through the list of movies and look for title and id.
 
 And as I told you, the result comes back in a very clean and crisp manner like so. 
@@ -157,6 +154,39 @@ We get a bunch of movies!
 Now that we understand a query, a question you might have is, "How do I know what to search for". In fact, when designing graphql, we can choose to format our data exactly the way we want to but that will be covered when talking about making a graphQL api. 
 
 For now, let's take the opportunity to explore the graphQL docs! 
+
+Click the docs arrow right over here! 
+
+We get a bunch of databases like so! These were preloaded into the website built for you, but the collection we really care about is 
+
+If we click on it, we will see all the collections that fall under recipe 
+
+In other words, we can search through all these minicollections. As you can see, there is an s following each type of database and this is just to signify that we want multiple entries, not just one. Let's examine further and click on movies. 
+
+Well, we get to examine all the type entries. Notice the yellow text to teach type entry. This signifies the type of data that will be returned. If we take a look at title, we see the returned datatype is a string. This means it requires no parameters and when querying we can simply stop at title.
+
+However, if we look at something like imdb 
+
+The returned datatype is Recipe_MovieImdb, which is not a primary datatype. In fact, if we click on it and expand it further 
+
+We see id, rating, votes, and we can stop our query from here. 
+
+Now that you understand how queries ask, you might ask, what if we are looking for something specific in a database? Sure we can search for all the movies, but its kinda a pain to scroll right? Well, no worries. We can  query for exactly what we want! 
+
+If we take a look at our movies, it shows us the exact parameters we can look for. 
+
+And now we can look exactly for what we want. Well everyone loves John Wick right so lets try querying by title. 
+
+Here is the returned data. Exactly what we are looking for. We can also use limit and sort as well.
+
+What will be returned is 5 movies 
+
+Now, let's look and wonder, what if the movie we awnt isn't on there? 
+
+We see GraphQl doesn't return anything
+
+So how can we write a query? 
+
 </Notes>
 
 ---
