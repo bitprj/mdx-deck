@@ -7,411 +7,216 @@ import GreetingLoader from "./src/greeting-loader";
 
 export const theme = customTheme;
 
-<Column>
-
 # GraphQL
 
-</Column>
-
 ---
 
-<Column>
+<L.Row>
 
 # Presenters
-
-</Column>
-
----
-
-<Column>
-
-# We will be using CodeSandbox(in browser IDE): https://codesandbox.io/s/github/bitprj/mdx-deck
-# Please create a fork under your acct
-
-
-</Column>
----
-
-<Column>
-
-# Presenters
-
-</Column>
----
-
-<Column>
-
-# Presenters
-
-</Column>
----
-
-<Column>
-
-# Presenters
-
-</Column>
-
-<CodeSurferColumns sizes={[1, 2]}>
-  
-<Step subtitle="Here is a simple React component">
-  
-<GreetingLoader />
-
-```jsx file=./src/greeting.1.1.js
-```
-
-</Step>
-
-<Step subtitle="we want to make the 'name' editable">
-    
-<GreetingLoader />
-
-```jsx 7 file=./src/greeting.1.1.js
-```
-
-</Step>
-  
-<Step subtitle="so we turn the component into a class">
-    
-<GreetingLoader version="class.1.1" />
-
-```jsx file=./src/greeting.class.1.1.js
-```
-
-</Step>
-
-<Step subtitle="add some state">
-
-<GreetingLoader version="class.1.2" />
-
-```jsx file=./src/greeting.class.1.2.js
-```
-
-</Step>
-
-<Step subtitle="and add a change handler that calls setState">
-
-<GreetingLoader version="class.1.3" />
-
-```jsx 10:12,15:17,25 file=./src/greeting.class.1.3.js
-```
-
-</Step>
-
-<Step subtitle="we can now edit the name and it should work">
-
-<GreetingLoader version="class.1.3" />
-
-```jsx 1:31 file=./src/greeting.class.1.3.js
-```
-
-</Step>
-
-</CodeSurferColumns>
-
----
-<Background />
-<L.Column sx={{ minHeight: '0' }}>
-
-## Disclaimer
-
-### Information in this talk may not be accurate or may change in the future
-
-</L.Column>
-
----
-
-<L.Row>
-
-## Time Slicing
-
-### "Chunking slow rendering on subtree into little blocks of work by interrupting the work loop."
+## Jeff Chenn and Louman Cheung
+### 
 
 </L.Row>
 
 ---
 
-import DanDemoBlocking from '../assets/dan-demo-blocking.png';
+<p>We will be using CodeSandbox, an in-browser IDE</p>
+<p>1. Please go to https://codesandbox.io/s/github/bitprj/mdx-deck</p>
+<p>2. Click File -> Fork Sandbox</p>
 
-<img src={DanDemoBlocking} />
+import codesandbox from '../assets/codesandbox.jpg';
 
----
+<img src={codesandbox} />
 
-import DanDemoConcurrent from '../assets/dan-demo-concurrent.png';
+<Notes>
+use a bit.ly link for the codesandbox link
 
-<img src={DanDemoConcurrent} />
+If everyone can go to code.sandbox and make this PREMADE template (TB done), it should automatically start a development server and you should see a website to the left. 
 
----
-
-<Background />
-
-### "Wait a minute... I already know about this! What is this talk really about?"
-
----
-
-<L.Column>
-
-# Concurrent Mode
-
-## A chain of unfortunate consequences
-
-</L.Column>
+The website has a bunch of preloaded data for you so what we will do is practice running queries. After I will show you how to make a graphQL Api. 
+</Notes>
 
 ---
 
-<Background />
+# What you'll get out of this workshop
 
-### How does React "delay" rendering?
-
----
-
-<L.Column>
-
-## Sources of Slowdown
-
-- Slow component render functions
-- Slow state setter or reducer updater functions
-- Slow effect functions
-
-</L.Column>
+- Front End Experience
+- 2
 
 ---
 
-import DeferredSetState from '../assets/deferred-setstate.svg';
-
-<L.Row>
-
-## Deferred setState.
-
-### Any state setter or dispatch can be delayed.
-
-</L.Row>
-
-<DeferredSetState />
-
----
-
-import InterruptRendering from '../assets/interrupt-rendering.svg';
-
-<L.Row>
-
-## Interrupt Rendering.
-
-### Any rendering can be interrupted and can be completed later before committing.
-
-</L.Row>
-
-<InterruptRendering />
+We will be using several tools
+<Steps>
+-MongoDB stitch (A NoSQL DataBase)
+-Gatsby
+-Npm (Package Manager)
+-GraphQL (Heavy Emphasis)
+-Postman(?)
+-JS
+-React
+</Steps>
 
 ---
 
-<L.Row>
+# What are API's and why are they important? 
 
-## Oops #1
+<Notes>
+SN: An API is essentially an endpoint in which we can make a request to retrieve data. 
 
-### Delaying rendering is only safe when no effects are pending on a subtree.
+If you are familiar with API's, I'm sure you've used fetch and axios to retrieve data from API's, The syntax looks something like this and its a lot to type out. 
 
-</L.Row>
+You get a bunch of data and now its up to you to parse through it.
 
----
+But what if there was an easier way? 
 
-import HooksAPI from '../assets/hooks-api.svg';
-
-<L.Row>
-
-## The Hooks API.
-
-### This restriction is reflected in the hooks API with encapsulation of effects.
-
-</L.Row>
-
-<HooksAPI />
+What I want to introduce everyone to is GraphQL, a a query language for API's. In essence, graphQL allows us to format our data exactly how we want it, query for specific data, and then get an easy return value. 
+</Notes>
 
 ---
 
-import HooksAPITiming from '../assets/hooks-api-timing.svg';
+# What is GraphQL?
+GraphQL is a data query 
+and manipulation language for APIs, 
+and a runtime for fulfilling queries 
+with existing data.
 
-<L.Row>
-
-## Hooks Timings.
-
-### With each hook we observe a part of the lifecycle and can react.
-
-</L.Row>
-
-<HooksAPITiming />
+<Notes>
+In this workshop, we will be showing you how to write a schema for a graphQL API, how to query data from that API, and make use of the information. Lastly, we will be putting our skills and knowledge to the test with a word puzzle game. 
+</Notes>
 
 ---
 
-import ComponentLifecycle from '../assets/component-lifecycle.svg';
+# Examples/uses
+import graphql from '../assets/graphql.jpg';
 
-<L.Row>
+<img src={graphql} />
 
-## The Lifecycle.
-
-### The lifecycle we observe has three phases repeating.
-
-</L.Row>
-
-<ComponentLifecycle />
+<Notes>
+display data dynamically
+</Notes>
 
 ---
 
-import ObservingLifecycleEvents from '../assets/observing-lifecycle-events.svg';
+# GraphQL Demo
 
-<L.Row>
-
-## Observing the Lifecycle.
-
-### Overlapping the lifecycle with hooks, we see a phase that we can't observe...
-
-</L.Row>
-
-<ObservingLifecycleEvents />
+<Notes>
+3-5 minutes demoing use of GraphQL
+Demo GraphiQL and explorer, querying, mutations
+</Notes>
 
 ---
 
-import InterruptedLifecycle from '../assets/interrupted-lifecycle.svg';
+# Using GraphiQL
+GraphiQL is the GraphQL IDE
+We can access it when the site's dev server is running
+usually at http://localhost:8000/___graphql (3 underscores)
 
-<L.Row>
+<Notes>
+Go to your development server and add /__graphql to the end and we should get something like so pop up. 
 
-## Interrupting the Lifecycle.
-
-### Unfortunately this phase becomes very relevant in Strict and Concurrent Mode.
-
-</L.Row>
-
-<InterruptedLifecycle />
-
----
-
-<L.Row>
-
-## Oops #2
-
-### It's not possible to have a subscription or effect track the component lifecycle.
-
-</L.Row>
+use GraphiQL to explore and see all the data you have access to
+you can interactively construct full queries by clicking through
+available fields and inputs
+after you construct your query, you simply can copy and paste
+</Notes>
 
 ---
 
-<L.Row>
+# Basic Query
 
-## Workaround
+<Steps>
+1. 
+2.
+3. 
+</Steps>
 
-### Resort to useSubscription
+<Notes>
+At its simplest, GraphQL is about asking for specific fields on 
+objects. Let's start by looking at a very simple query and 
+the result we get when we run it
+query has exactly the same shape as the result. 
+This is essential to GraphQL, because you always get back what 
+you expect, and the server knows exactly what fields the client 
+is asking for.
 
-</L.Row>
+*** switch to screen share to demo GraphQL ***
 
----
+In the website, there is a preloaded dataset for you that you can simply query from. The database is called recipe, and in the database there is a collection called movie. We can query through the list of movies and look for title and id.
 
-import SchedulerPriorities from '../assets/scheduler-priorities.svg';
+And as I told you, the result comes back in a very clean and crisp manner like so. 
 
-<L.Row>
+However, our database has more than just one movie in it. In fact, if I change the query to...
 
-## Scheduler Priorities.
+We get a bunch of movies! 
 
-### In Concurrent Mode the time budgets are switched on for time slicing.
+Now that we understand a query, a question you might have is, "How do I know what to search for". In fact, when designing graphql, we can choose to format our data exactly the way we want to but that will be covered when talking about making a graphQL api. 
 
-</L.Row>
+For now, let's take the opportunity to explore the graphQL docs! 
 
-<SchedulerPriorities />
+Click the docs arrow right over here! 
 
----
+We get a bunch of databases like so! These were preloaded into the website built for you, but the collection we really care about is 
 
-<L.Row>
+If we click on it, we will see all the collections that fall under recipe 
 
-## Oops #3
+In other words, we can search through all these minicollections. As you can see, there is an s following each type of database and this is just to signify that we want multiple entries, not just one. Let's examine further and click on movies. 
 
-### Seems like React isn't all that predictable anymore.
+Well, we get to examine all the type entries. Notice the yellow text to teach type entry. This signifies the type of data that will be returned. If we take a look at title, we see the returned datatype is a string. This means it requires no parameters and when querying we can simply stop at title.
 
-</L.Row>
+However, if we look at something like imdb 
 
----
+The returned datatype is Recipe_MovieImdb, which is not a primary datatype. In fact, if we click on it and expand it further 
 
-<L.Row>
+We see id, rating, votes, and we can stop our query from here. 
 
-## Workaround
+Now that you understand how queries ask, you might ask, what if we are looking for something specific in a database? Sure we can search for all the movies, but its kinda a pain to scroll right? Well, no worries. We can  query for exactly what we want! 
 
-### Synchronous Subscriber and scheduled teardown
+If we take a look at our movies, it shows us the exact parameters we can look for. 
 
-</L.Row>
+And now we can look exactly for what we want. Well everyone loves John Wick right so lets try querying by title. 
 
-https://github.com/facebook/react/issues/15317#issuecomment-573337558
+Here is the returned data. Exactly what we are looking for. We can also use limit and sort as well.
 
----
+What will be returned is 5 movies 
 
-<Background />
+Now, let's look and wonder, what if the movie we awnt isn't on there? 
 
-### "We didn't yet get to what happens when an effect is slow, right?"
+We see GraphQl doesn't return anything
 
----
+So how can we write a query? 
 
-<L.Row>
-
-## Tearing
-
-### "When a subtree's renderered state falls behind while another subtree has committed updates already."
-
-</L.Row>
-
----
-
-import Tearing1 from '../assets/bvaughn-tearing-1.png';
-import Tearing2 from '../assets/bvaughn-tearing-2.png';
-
-<L.Row>
-<img src={Tearing2} />
-<img src={Tearing1} />
-</L.Row>
+</Notes>
 
 ---
 
-<L.Column>
-
-## React's solution?
-
-- When an effect slows down, React can't safely interrupt or delay updates.
-- Instead it batches all updates and switches back to blocking mode
-- This is called a _deopt_.
-
-</L.Column>
+# Interactive Activity #1
+using GraphiQL and querying
+Crossword puzzle
 
 ---
 
-<L.Row>
+# Mutations
 
-## Oops #4
+<Steps>
+1.
+2.
+3.
+</Steps>
 
-### React Concurrent's deopt can be slower than Blocking was before.
-
-</L.Row>
-
----
-
-<L.Column>
-
-## However
-
-- This may still cause _tearing_ when another update is scheduled during this blocking batch.
-
-</L.Column>
+<Notes>
+Mutations are used to modify server-side data
+</Notes>
 
 ---
 
-<L.Row>
-
-## Oops #5
-
-### A new `useMutableSource` hook is necessary to fix this tearing-during-deopt issue.
-
-</L.Row>
+# Activity #2
+# Mutations
 
 ---
 
-<L.Column>
-
-# Concurrent Mode: Oops
-
-</L.Column>
+# Conclusion and Recap
+GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
+GraphiQL
+Query
+Mutations
