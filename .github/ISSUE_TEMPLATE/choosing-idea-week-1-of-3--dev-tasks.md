@@ -9,6 +9,7 @@ assignees: ''
 
 # Week 1 of 3: Getting Ideas on (MDX-Deck) Paper
 ## Week 1 Checklist for Developers
+- [ ] Have Code Sandbox completely set-up
 - [ ] Go through entire workshop
          - [ ] **Make sure it completely works on your computer**
          - [ ] Understand at a high level what is happening

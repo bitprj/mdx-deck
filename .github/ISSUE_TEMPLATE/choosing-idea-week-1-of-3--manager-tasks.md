@@ -7,9 +7,9 @@ assignees: ''
 
 ---
 
-#Week 1 of 3: Getting Ideas on (MDX-Deck) Paper
-##Week 1 Checklist for Managers
-- [ ] Ensure they have mdx-deck working on their computers
+# Week 1 of 3: Getting Ideas on (MDX-Deck) Paper
+## Week 1 Checklist for Managers
+- [ ] Ensure they have Code Sandbox set up on their computers
 - [ ] Come up with specific action plan for how devs will convert slides
 - [ ] Discuss with devs to coordinate and confirm the interactive component
 - [ ] Confirm date and time of presentation in Week 3 with head and devs
