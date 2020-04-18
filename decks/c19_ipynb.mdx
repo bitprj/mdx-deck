@@ -12,10 +12,9 @@ export const theme = customTheme;
 # Visualizing COVID-19 Data with Python!
 
 
-* Analyzing choropleth plots, bar charts and line graphs
-* Wrangling with pandas
+* Analyzing Choropleth plots, Bar charts and Line graphs
+* Wrangling with Pandas
 
-###### Christopher Ton
 </L.Column>
 
 
@@ -28,13 +27,13 @@ import choro from '../assets/world_choro.png'
 - John Hopkins CSSE (available on GitHub through [CSSEGISandDATA](https://github.com/CSSEGISandData/COVID-19))
 
 <Note>
-We'll look at data that was recorded as of 04-13-2020*
+We'll look at data that was recorded as of 04-17-2020*
 </Note>
 
 
 ---
 
-### Plot functions for Q1-3
+# Plot Functions 
 
 
 ```python
@@ -48,7 +47,7 @@ line_plots()
 ```
 ---
 
-###### world_choro.show()
+## Q1) world_choro.show()
 
 ```python
 world_choro = px.choropleth(world_total, geojson=countries, locations='name',
@@ -60,7 +59,7 @@ world_choro.show()
 
 ---
 
-###### choro_state()
+## Q1) choro_state()
 ```python
 
 def choro_state(): 
@@ -76,9 +75,9 @@ def choro_state():
 
 ```
 ---
-###### plot_top10_bydate()
+##  Q2) bar_chart()
 ```python
-def plot_top10_bydate():
+def bar_chart():
     Place = input("Would like to see State,US, or Global")
     if Place == "State":
         state = input("Enter the state: ")
@@ -102,7 +101,7 @@ def plot_top10_bydate():
 ```
 ---
 
-###### line_plots()
+## Q3) line_plots()
 
 ```python
 def line_plots():
@@ -122,7 +121,7 @@ def line_plots():
 
 ---
 
-#### Some Pandas Basics 
+## Q4) Some Pandas Basics 
 
  ```python
 pd.head()
@@ -130,6 +129,12 @@ pd.sort_values()
 pd.drop()
 pd.groupby()
 pd.get_group()
+pd.min()
+pd.max()
+pd.mean()
+pd.unique()
+pd.index()
+pd.iloc[]
 ```
 
 
