@@ -1,0 +1,129 @@
+import { CodeSurfer as Surfer } from "code-surfer";
+import { CodeSurferColumns, Step } from "code-surfer";
+import { Appear, Background } from "gatsby-theme-mdx-deck";
+import * as L from "../src/layout";
+import customTheme from "../src/theme";
+import GreetingLoader from "./src/greeting-loader";
+import "prismjs/components/prism-python";
+
+
+# Visualizing COVID-19 Data with Python!
+
+
+* Analyzing choropleth plots, bar charts and line graphs
+* Wrangling with pandas
+
+###### Christopher Ton
+
+---
+# Where do I find Data?
+
+- John Hopkins CSSE (available on GitHub through [CSSEGISandDATA](https://github.com/CSSEGISandData/COVID-19))
+###### *We'll look at data that was recorded as of 04-13-2020*
+
+
+---
+
+### Plot functions for Q1-3
+
+
+```python
+world_choro.show()
+
+choro_state()
+
+plot_top10_bydate()
+
+line_plots()
+```
+---
+
+###### world_choro.show()
+
+```python
+world_choro = px.choropleth(world_total, geojson=countries, locations='name',
+                            color='confirmed',color_continuous_scale="Viridis",
+                            featureidkey="properties.name",range_color=(0, 60000),
+                            hover_data = ['name','confirmed'])
+world_choro.show()
+```
+
+---
+
+###### choro_state()
+
+```python
+
+def choro_state(): 
+    ch = input("Would you like to see the US or a specefic state? ")
+    if ch=='state':
+        st = input("Enter a state: ")
+        choro_state = choro_US[choro_US['State']==st]
+        fig = px.choropleth(choro_state,...)
+        fig.show()
+    elif ch == 'US':
+        fig = px.choropleth(choro_US, ...)
+        fig.show()
+
+```
+---
+###### plot_top10_bydate()
+
+```python
+def plot_top10_bydate():
+
+    Place = input("Would like to see State,US, or Global")
+    if Place == "State":
+        state = input("Enter the state: ")
+        date = input("On what date? (m/d/yy) ")
+        num = input("How many cities? ")
+        by_city = hist_conf.groupby('Province_State')
+        sort_date_c= by_city.get_group(str(state)).sort_values(
+        str(date),ascending=False).head(int(num))
+        fig = px.bar(sort_date_c, x='Combined_Key', 
+        y=date,color= date)
+    elif Place == "US":
+        date = input(...)
+        num = input(...)
+        by_state = sum_day.reset_index()
+        fig = px.bar(by_state.head(int(num))...)
+
+    elif Place == "Global":
+        date = input(...)
+        num = input(...)
+        by_country = world_sum_day.reset_index()
+        fig = px.bar(by_country.head(int(num)
+```
+---
+
+###### line_plots()
+
+```python
+def line_plots():
+    plot = input("Would you like to see state or country trends?" )    
+    if plot == "state":
+        days = input("Number of previous days: ")
+        num = input("How many states? ")
+        states_trends = top_trends[top_trends.columns[-int(days):]].sort_values(
+            '2020-04-16',ascending=False).head(int(num)).T
+        plot = states_trends.plot(...)
+    elif plot == "country":
+        days = input(...)
+        num = input(...)
+        world_trends = ...
+        plot = world_trends.plot(...)
+```
+
+---
+
+#### Some Pandas Basics 
+
+ ```python
+pd.head()
+pd.sort_values()
+pd.drop()
+pd.groupby()
+pd.get_group()
+```
+
+
