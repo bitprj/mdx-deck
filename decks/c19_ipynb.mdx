@@ -5,7 +5,9 @@ import * as L from "../src/layout";
 import customTheme from "../src/theme";
 import GreetingLoader from "./src/greeting-loader";
 import "prismjs/components/prism-python";
+export const theme = customTheme;
 
+<L.Column>
 
 # Visualizing COVID-19 Data with Python!
 
@@ -14,12 +16,20 @@ import "prismjs/components/prism-python";
 * Wrangling with pandas
 
 ###### Christopher Ton
+</L.Column>
+
+
+import choro from '../assets/world_choro.png'
 
 ---
 # Where do I find Data?
 
+
 - John Hopkins CSSE (available on GitHub through [CSSEGISandDATA](https://github.com/CSSEGISandData/COVID-19))
-###### *We'll look at data that was recorded as of 04-13-2020*
+
+<Note>
+We'll look at data that was recorded as of 04-13-2020*
+</Note>
 
 
 ---
@@ -51,7 +61,6 @@ world_choro.show()
 ---
 
 ###### choro_state()
-
 ```python
 
 def choro_state(): 
@@ -68,10 +77,8 @@ def choro_state():
 ```
 ---
 ###### plot_top10_bydate()
-
 ```python
 def plot_top10_bydate():
-
     Place = input("Would like to see State,US, or Global")
     if Place == "State":
         state = input("Enter the state: ")
@@ -87,7 +94,6 @@ def plot_top10_bydate():
         num = input(...)
         by_state = sum_day.reset_index()
         fig = px.bar(by_state.head(int(num))...)
-
     elif Place == "Global":
         date = input(...)
         num = input(...)
