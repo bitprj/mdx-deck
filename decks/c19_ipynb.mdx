@@ -7,134 +7,271 @@ import GreetingLoader from "./src/greeting-loader";
 import "prismjs/components/prism-python";
 export const theme = customTheme;
 
-<L.Column>
+# Visualizing COVID-19 Data with Python + Google Colab!
 
-# Visualizing COVID-19 Data with Python!
-
-
-* Analyzing Choropleth plots, Bar charts and Line graphs
+* Analyzing Bar charts
 * Wrangling with Pandas
 
-</L.Column>
-
-
-import choro from '../assets/world_choro.png'
-
----
-# Where do I find Data?
-
-
-- John Hopkins CSSE (available on GitHub through [CSSEGISandDATA](https://github.com/CSSEGISandData/COVID-19))
-
-<Note>
-We'll look at data that was recorded as of 04-17-2020*
-</Note>
-
-
 ---
 
-# Plot Functions 
+# Getting set up
+
+- Search for Google Colab and click on first link 
+- File/New Notebook
+- Sign into your Google account
+
+---
+# Initialize Notebook With Required Packages
+
+```python
+import pandas as pd
+import plotly.express as px
+```
+---
+
+# Where to find data?
+
+Navigate to: 
+
+```python 
+link = 'https://github.com/
+  CSSEGISandData/
+  COVID-19/raw/master/
+  csse_covid_19_data/
+  csse_covid_19_daily_reports/
+  04-17-2020.csv'
+```
+
+Click "+ code " on the upper left corner to create a new code chunk under
+
+Copy and paste the entire block above into the same code chunk in the colab.
+
+
+
+---
+
+# Reading in data
+
+```python
+
+world = pd.read_csv(link)  #read in csv via link
+world.head() #lists the top 5 rows
+```
+---
 
 
 ```python
-world_choro.show()
+link = 'https://github.com/CSSEGISandData/
+        COVID-19/raw/master/
+        csse_covid_19_data/
+        csse_covid_19_daily_reports/
+        04-17-2020.csv'
 
-choro_state()
-
-plot_top10_bydate()
-
-line_plots()
+world = pd.read_csv(link)  #read in csv via link
+world.head() #lists the top 5 rows
 ```
----
 
-## Q1) world_choro.show()
+|....|FIPS|Admin2|Province_State|Country_Region|...|Confirmed|...|Active|...|Combined_Key
+|----|----|------|--------------|--------------|---|---------|---|------|---|------------
+|0   |45001.0|Abbeville|South Carolina|US|...|10|...|10|...|Abbeville, South Carolina, US
+|1   |22001.0|Acadia	|Louisiana	|US|...|110|...|104|...|Acadia, Louisiana, US
+|:|:|:|:|:|:|:|:|:|:|:
+|4  |19001.0|Adair	|Iowa	|US|...|1|...|1|...|Adair, Iowa, US
+
+---
+# Aggregate Data
 
 ```python
-world_choro = px.choropleth(world_total, geojson=countries, locations='name',
-                            color='confirmed',color_continuous_scale="Viridis",
-                            featureidkey="properties.name",range_color=(0, 60000),
-                            hover_data = ['name','confirmed'])
-world_choro.show()
+ world.groupby('Country_Region')
 ```
+
 
 ---
 
-## Q1) choro_state()
-```python
-
-def choro_state(): 
-    ch = input("Would you like to see the US or a specefic state? ")
-    if ch=='state':
-        st = input("Enter a state: ")
-        choro_state = choro_US[choro_US['State']==st]
-        fig = px.choropleth(choro_state,...)
-        fig.show()
-    elif ch == 'US':
-        fig = px.choropleth(choro_US, ...)
-        fig.show()
-
-```
----
-##  Q2) bar_chart()
-```python
-def bar_chart():
-    Place = input("Would like to see State,US, or Global")
-    if Place == "State":
-        state = input("Enter the state: ")
-        date = input("On what date? (m/d/yy) ")
-        num = input("How many cities? ")
-        by_city = hist_conf.groupby('Province_State')
-        sort_date_c= by_city.get_group(str(state)).sort_values(
-        str(date),ascending=False).head(int(num))
-        fig = px.bar(sort_date_c, x='Combined_Key', 
-        y=date,color= date)
-    elif Place == "US":
-        date = input(...)
-        num = input(...)
-        by_state = sum_day.reset_index()
-        fig = px.bar(by_state.head(int(num))...)
-    elif Place == "Global":
-        date = input(...)
-        num = input(...)
-        by_country = world_sum_day.reset_index()
-        fig = px.bar(by_country.head(int(num)
-```
----
-
-## Q3) line_plots()
+# Aggregate Data
 
 ```python
-def line_plots():
-    plot = input("Would you like to see state or country trends?" )    
-    if plot == "state":
-        days = input("Number of previous days: ")
-        num = input("How many states? ")
-        states_trends = top_trends[top_trends.columns[-int(days):]].sort_values(
-            '2020-04-16',ascending=False).head(int(num)).T
-        plot = states_trends.plot(...)
-    elif plot == "country":
-        days = input(...)
-        num = input(...)
-        world_trends = ...
-        plot = world_trends.plot(...)
+ world.groupby('Country_Region')
+
+ #<pandas.core.groupby.generic.DataFrameGroupBy object at 0x7faba573bc50>
 ```
+---
+# Aggregate Data
+
+```python
+world.groupby('Country_Region').Confirmed
+
+#<pandas.core.groupby.generic.SeriesGroupBy object at 0x7faba6766c18>
+```
+---
+# Aggregate Data
+
+```python
+world.groupby('Country_Region').Confirmed.sum()
+```
+
+
+Country_Region|
+--------------|---
+Afghanistan|906
+Albania| 539
+:|:
+Zimbabwe|24
+Name: Confirmed, Length:| 185, dtype: int64
+
+
+---
+# Aggregate Data
+
+Turn previous output into a Pandas df
+
+```python
+world.groupby('Country_Region').Confirmed.sum().reset_index()
+```
+
 
 ---
 
-## Q4) Some Pandas Basics 
+# Aggregate Data
 
- ```python
-pd.head()
-pd.sort_values()
-pd.drop()
-pd.groupby()
-pd.get_group()
-pd.min()
-pd.max()
-pd.mean()
-pd.unique()
-pd.index()
-pd.iloc[]
+```python
+grouped_countries = world.groupby('Country_Region').Confirmed.sum().reset_index()
+```
+---
+
+# Aggregate Data
+
+```python
+grouped_countries = world.groupby('Country_Region').Confirmed.sum().reset_index()
+grouped_countries.head()
 ```
 
+|....|Country_Region|Confirmed
+|----|--------------|---------
+|0   |Afghanistan|906
+|1   |Albania	|539
+|:|:|
+|4  |Angola	|19
 
+---
+# Bar Chart for group_countries
+```python
+fig = px.bar(grouped_countries,   #plots all n rows
+              x='Country_Region', 
+              y='Confirmed',
+            color= 'Confirmed')
+fig.show()
+```
+---
+
+# Bar Chart for group_countries.head()
+```python
+fig = px.bar(grouped_countries.head(),  #plots top 5 rows in default order
+              x='Country_Region', 
+              y='Confirmed',
+            color= 'Confirmed')
+fig.show()
+```
+---
+
+# What if I wanted to see different order?
+
+```python
+sorted_countries = grouped_countries.sort_values('Confirmed',ascending=False)
+
+fig = px.bar(sorted_countries.head(),  #plots top 5 rows in descending order
+              x='Country_Region', 
+              y='Confirmed',
+            color= 'Confirmed')
+
+fig.show()
+```
+---
+
+# Select specefic countries to plot
+
+```python
+list = ['US','Turkey','Russia','Japan','Germany']
+```
+
+---
+# Select specefic countries to plot
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+grouped_countries.Country_Region.isin(list)
+```
+---
+# Select specefic countries to plot
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+grouped_countries.loc[grouped_countries.Country_Region.isin(list)]
+```
+---
+# Select specefic countries to plot
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+selected_groups = grouped_countries.loc[grouped_countries.Country_Region.isin(list)]
+selected_groups
+```
+
+|....|Country_Region|Confirmed
+|----|--------------|---------
+|0   |Canada|32814
+|1   |China	|83760
+|:|:|
+|4  |US	|699706
+---
+
+# Select specefic countries to plot
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+selected_groups = grouped_countries.loc[grouped_countries.Country_Region.isin(list)]
+selected_groups.sort_values('Confirmed',ascending = False) #sort in descending order
+```
+
+|....|Country_Region|Confirmed
+|----|--------------|---------
+|0   |US|699706
+|1   |Italy	|172434
+|:|:|
+|4  |Canada	|32814
+---
+
+# Select specefic countries to plot
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+selected_groups = grouped_countries.loc[grouped_countries.Country_Region.isin(list)]
+sorted_conf = selected_groups.sort_values('Confirmed',ascending = False)
+```
+
+|....|Country_Region|Confirmed
+|----|--------------|---------
+|0   |US|699706
+|1   |Italy	|172434
+|:|:|
+|4  |Canada	|32814
+---
+
+# Bar Chart for sorted_conf
+```python
+fig = px.bar(sorted_conf, 
+              x='Country_Region', 
+              y='Confirmed',
+            color= 'Confirmed')
+fig.show()
+```
+---
+
+# That's it! Easy huh?
+
+Code used for this tutorial can be found [here](https://colab.research.google.com/drive/1O4kiZofDz31a5eM_v_o_LolPjBHUhqG3)
