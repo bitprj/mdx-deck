@@ -243,31 +243,83 @@ import ComponentLifecycle from '../assets/component-lifecycle.svg';
 
 ---
 
-import ObservingLifecycleEvents from '../assets/observing-lifecycle-events.svg';
+<L.Column>
 
-<L.Row>
+## Add the Line Graph
 
-## Observing the Lifecycle.
+<p> Once we pass the COVID-19 data  we can create the time series model using chart.js!
+</p>
+<p> You would first create a canvas by using this HTML command within the template variable
+   `<canvas id="myChart"></canvas>`.
+</p>
+<p> Then you would call this JavaScript command above the HTML command
+    to initialize Chart.js library, `<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>`
+</p> 
+<p> After that, you would write the JavaScript code written below between the two `script` parameters to form the body that passes the
+    dates and data values of our dataset.
+</p>
+<p> Finally you can run the code by clicking on the send button and the visulaize button and viola! We have our time series model!
+</p>
 
-### Overlapping the lifecycle with hooks, we see a phase that we can't observe...
+</L.Column>
 
-</L.Row>
+<R.Column>
 
-<ObservingLifecycleEvents />
+<img src = {usa_graph} />
+
+</R.Column>
+
+<Notes>
+  <p> We can see here that the cases for COVID-19 have been stagnant throughout January and February, but then they start to increase
+      in March. This means that as time goes on after March, the number of COVID-19 cases increase, meaning the disease is starting to
+      spread much throughout the US during this time.
+  </p>
+</Notes>
+  
+---
+
+<L.Column>
+
+## Show Time Series for another country
+
+<p> We saw in the previous example that we displayed the time series of COVID-19 cases in the US, but what about other countries?
+</p>
+<p> Well, you're in luck! Notice how on the GET search bar, we already have the API key for our 
+  dataset, `https://covidapi.info/api/v1/country/USA`, but the `USA` value after `/country/` represents the specfic country that we
+  selected to show the time series for.
+</p>
+<p> Now what you can do is simply change that parameter for another country. Let's look at the rate of COVID-19 cases for. China's value is known as `CHN`. So you would would replace `USA` with `CHN` after the `/country/` parameter like so
+  `https://covidapi.info/api/v1/country/CHN`.
+</p>
+<p> Once you have completed each step, you click send and visualize right after, and voila! You now have the time series model for China.
+</p>
+
+</L.Column>
+
+<R.Column>
+
+<img src = {china} />
+
+</R.Column>
 
 ---
 
-import InterruptedLifecycle from '../assets/interrupted-lifecycle.svg';
+<L.Column>
 
-<L.Row>
+## Show Time Series for another Value
 
-## Interrupting the Lifecycle.
+<p> We've already showed many ways of displaying time series data for COVID-19 cases for a country, but what if we ant to see it on a global scale?
+</p>
+<p> Well you can now do that through editing the API key from the GET search bar.
+</p>
+<p> Now if we look at the API key `https://covidapi.info/api/v1/country/CHN`, notice how the `/country/` parameter focuses on the location of each country and `CHN` is the country, China?
+</p>
+<p> Now what you can do is replace both parameters with `/global/` to let the API key know that you want every country in the world and after that, you would `/count/` for every international case of COVID-19.
+</p>
+<p> Your API key on the GET search bar will look like this, `https://covidapi.info/api/v1/global/count`, and after clicking search and visualize, you just created another time series model for the entire world.
+</p>
 
-### Unfortunately this phase becomes very relevant in Strict and Concurrent Mode.
-
-</L.Row>
-
-<InterruptedLifecycle />
+</L.Column>
 
 ---
 
