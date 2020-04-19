@@ -82,7 +82,7 @@ What I want to introduce everyone to is GraphQL, a a query language for API's. I
 <L.Row>
 
 # What is GraphQL?
-## GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
+### GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
 
 </L.Row>
 
@@ -92,7 +92,12 @@ In this workshop, we will be showing you how to write a schema for a graphQL API
 
 ---
 
-# Examples/uses
+# Why GraphQL?
+
+- Allows the client to specify exactly what data to retrieve
+- Single endpoint from multiple sources
+- Describes data using a type system
+
 import graphql from '../assets/graphql.jpg';
 
 <img src={graphql} />
@@ -115,7 +120,7 @@ Demo GraphiQL and explorer, querying, mutations
 <L.Row>
 
 # Using GraphiQL
-## GraphiQL is the GraphQL IDE. We can access it when the site's dev server is running usually at http://localhost:8000/___graphql (3 underscores)
+### GraphiQL is the GraphQL IDE. We can access it when the site's dev server is running usually at http://localhost:8000/___graphql (3 underscores)
 
 </L.Row>
 
@@ -131,12 +136,6 @@ after you construct your query, you simply can copy and paste
 ---
 
 # Basic Query
-
-<Steps>
-1. 
-2.
-3. 
-</Steps>
 
 <Notes>
 At its simplest, GraphQL is about asking for specific fields on 
@@ -189,7 +188,7 @@ What will be returned is 5 movies
 
 Now, let's look and wonder, what if the movie we awnt isn't on there? 
 
-We see GraphQl doesn't return anything
+We see GraphQL doesn't return anything
 
 So how can we write a query? 
 
@@ -198,20 +197,23 @@ So how can we write a query?
 ---
 
 # Interactive Activity #1
+# GraphiQL and Queries
+
+<Notes>
+
 using GraphiQL and querying
 Crossword puzzle
+
+</Notes>
 
 ---
 
 # Mutations
 
-<Steps>
-1.
-2.
-3.
-</Steps>
-
 <Notes>
+
+*** screen share to demo mutations ***
+
 Mutations are used to modify server-side data
 </Notes>
 
@@ -222,12 +224,12 @@ Mutations are used to modify server-side data
 
 ---
 
-<L.Column>
+<L.Row>
 
 # Conclusion and Recap
-## GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
-## GraphiQL
-## Query
-## Mutations
+- GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
+- GraphiQL
+- Query
+- Mutations
 
-</L.Column>
+</L.Row>
