@@ -37,32 +37,6 @@ The website has a bunch of preloaded data for you so what we will do is practice
 
 ---
 
-<L.Column>
-
-## What you'll get out of this workshop
-
-- Front End Experience
-- 2
-
-</L.Column>
-
----
-
-<L.Row>
-
-# We will be using several tools
-- MongoDB stitch (A NoSQL DataBase)
-- Gatsby
-- Npm (Package Manager)
-- GraphQL (Heavy Emphasis)
-- Postman(?)
-- JS
-- React
-
-</L.Row>
-
----
-
 # What are API's and why are they important? 
 
 <Notes>
@@ -138,6 +112,8 @@ after you construct your query, you simply can copy and paste
 # Basic Query
 
 <Notes>
+*** switch to screen share to demo GraphQL ***
+
 At its simplest, GraphQL is about asking for specific fields on 
 objects. Let's start by looking at a very simple query and 
 the result we get when we run it
@@ -145,8 +121,6 @@ query has exactly the same shape as the result.
 This is essential to GraphQL, because you always get back what 
 you expect, and the server knows exactly what fields the client 
 is asking for.
-
-*** switch to screen share to demo GraphQL ***
 
 In the website, there is a preloaded dataset for you that you can simply query from. The database is called recipe, and in the database there is a collection called movie. We can query through the list of movies and look for title and id.
 
@@ -201,8 +175,11 @@ So how can we write a query?
 
 <Notes>
 
-using GraphiQL and querying
-Crossword puzzle
+now that we've learned to use GraphiQL and how to query, let's practice them
+
+in the repo we have provided, we have a crossword puzzle
+
+you will be using the provided clues and GraphiQL to solve the puzzle
 
 </Notes>
 
@@ -214,13 +191,32 @@ Crossword puzzle
 
 *** screen share to demo mutations ***
 
-Mutations are used to modify server-side data
+We used queries to fetch data so now we will be using mutations to modify server-side data
+
+To start, let's go back to GraphiQL
+
+just like when we were building the query using the explorer, we can use the explorer find the fields
+we want to modify and then input values
+
+fields that can receive values will be in purple
+
+as we put values into the field, the expression is automatically built
+
+now we run the mutation
+
+and we can query the fields to see that the data was modified
 </Notes>
 
 ---
 
 # Activity #2
 # Mutations
+
+<Notes>
+
+pending 2nd activity completion
+
+</Notes>
 
 ---
 
