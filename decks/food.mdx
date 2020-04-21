@@ -2,7 +2,6 @@ import { CodeSurfer as Surfer } from "code-surfer";
 import { CodeSurferColumns, Step } from "code-surfer";
 import { Appear, Background } from "gatsby-theme-mdx-deck";
 import * as L from "../src/layout";
-import * as R from "../src/layout";
 import customTheme from "../src/theme";
 import GreetingLoader from "./src/greeting-loader";
 
@@ -28,7 +27,7 @@ import image_2 from "../assets/image (2).png"
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Add the Line Graph
 
@@ -45,15 +44,11 @@ import image_2 from "../assets/image (2).png"
 <p> Finally you can run the code by clicking on the send button and the visulaize button and viola! We have our time series model!
 </p>
 
-</L.Column>
+</L.Row>
 
 import usa_graph from '../assets/USA Graph.png'
 
-<R.Column>
-
-<img src = {require(usa_graph)}/>
-
-</R.Column>
+<img src = {usa_graph}/>
 
 <Notes>
   <p> We can see here that the cases for COVID-19 have been stagnant throughout January and February, but then they start to increase
@@ -64,7 +59,7 @@ import usa_graph from '../assets/USA Graph.png'
   
 ---
 
-<L.Column>
+<L.Row>
 
 ## Show Time Series for another country
 
@@ -80,19 +75,15 @@ import usa_graph from '../assets/USA Graph.png'
 <p> Once you have completed each step, you click send and visualize right after, and voila! You now have the time series model for China.
 </p>
 
-</L.Column>
+</L.Row>
 
 import china from '../assets/china.png'
 
-<R.Column>
-
-<img src = {require(china)}/>
-
-</R.Column>
+<img src = {china}/>
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Show Time Series for another Value
 
@@ -107,19 +98,15 @@ import china from '../assets/china.png'
 <p> Your API key on the GET search bar will look like this, `https://covidapi.info/api/v1/global/count`, and after clicking search and visualize, you just created another time series model for the entire world.
 </p>
 
-</L.Column>
+</L.Row>
 
 import global_graph from '../assets/Global Graph.PNG'
 
-<R.Column>
-
 <img src = {require(global_graph)}/>
-
-</R.Column>
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Change of Variables for Data Types (Creating the ISO Variable)
 
@@ -128,19 +115,15 @@ import global_graph from '../assets/Global Graph.PNG'
 <p> To initialize our variable, we go to the pre-request script tab. Let's name our variable as "ISO" to use the data from China. We would use the `pm.variables.set()` function call to intialize our variable and the first parameter would be `ISO` and our second parameter would be `CHN`. The function call will look like this, `pm.variables.set("ISO", "CHN").
 </p>
 
-</L.Column>
+</L.Row>
 
 import iso from '../assets/ISO.png'
 
-<R.Column>
-
-<img src = {require(iso)}/>
-
-</R.Column>
+<img src = {iso}/>
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Change of Variables for Data Types (ISO Time Series Model)
 
@@ -149,19 +132,15 @@ import iso from '../assets/ISO.png'
 <p> That's because we have only redfined China's variable name as something else, but the data is exactly the same.
 </p>
 
-</L.Column>
+</L.Row>
 
 import russel from '../assets/russel.png'
 
-<R.Column>
-
-<img src = {require(russel)}/>
-
-</R.Column>
+<img src = {russel}/>
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Change of Variables for Data Types (How the Graph reads ISO's Data)
 
@@ -170,19 +149,15 @@ import russel from '../assets/russel.png'
 <p> This also contains the pm.variables.get("ISO") to show how the title of the graph is defined and the `pm.variables.get()' function call takes all of the data from each given variable, which explains how the graph was able to read the data in the first place.
 </p>
 
-</L.Column>
+</L.Row>
 
 import iso_code from '../assets/ISO Code.png'
 
-<R.Column>
-
 <img src = {require(iso_code)}/>
-
-</R.Column>
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Make the Datapoints have the same colors of their Country's Flag
 
@@ -190,19 +165,15 @@ import iso_code from '../assets/ISO Code.png'
    try by making the datapoints that represents the level of COVID-19 cases per date have the same colors as the country's flag.
 </p>
 
-</L.Column>
+</L.Row>
 
 import china_before_colors from "../assets/China Colors Before.png"
 
-<R.Column>
-
 <img src = {require(china_before_colors)}/>
-
-</R.Column>
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Make the Datapoints have the same colors of their Country's Flag (Changing Bullet Point Colors)
 
@@ -213,19 +184,15 @@ import china_before_colors from "../assets/China Colors Before.png"
    `borderColor:` (border color for the bullet points) like so.
 </p>
 
-</L.Column>
+</L.Row>
 
 import image from "../assets/image.png"
 
-<R.Column>
-
 <img src = {require(image)}/>
-
-</R.Column>
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Make the Datapoints have the same colors of their Country's Flag (Country's Graph)
 
@@ -236,19 +203,15 @@ import image from "../assets/image.png"
    them towards the initial data point, you'll see that the data points are red with a yellow boarder like intended!
 </p>
 
-</L.Column>
+</L.Row>
 
 import image_1 from "../assets/image (1).png"
 
-<R.Column>
-
 <img src = {require(image_1)}/>
-
-</R.Column>
 
 ---
 
-<L.Column>
+<L.Row>
 
 ## Make the Datapoints have the same colors of their Country's Flag (Explaining Background Color for Mathematical Model)
 
@@ -258,14 +221,10 @@ import image_1 from "../assets/image (1).png"
 <p> If you look at the `color:` section of the JavaScript code, you can see that it's preset to Black. That would mean that no matter how many times you run it, you can't change the color for the mathematical model.
 </p>
 
-</L.Column>
+</L.Row>
 
 import image_2 from "../assets/image (2).png" 
 
-<R.Column>
-
 <img src = {require(image_2)}/>
-
-</R.Column>
 
 ---
