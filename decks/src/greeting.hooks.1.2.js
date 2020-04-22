@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Row from "./row";
 
 export default function Greeting(props) {
-  const name = useState("name")
-  const setName = useState("name")
+  const name = ???
+  const setName = ???
 
   function handleNameChange(e) {
     setName(e.target.value);
