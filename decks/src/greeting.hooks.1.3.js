@@ -2,7 +2,7 @@ import React from "react";
 import Row from "./row";
 
 export default function Greeting(props) {
-  const [name, setName] = ???
+  const [name, setName] = useState("name")
 
   function handleNameChange(e) {
     setName(e.target.value);
