@@ -2,7 +2,7 @@ import React from "react";
 import Row from "./row";
 
 export default function Greeting(props) {
-  const name = ???
+  const name = useState("name")
 
   return (
     <section>
