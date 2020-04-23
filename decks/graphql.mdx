@@ -7,55 +7,33 @@ import GreetingLoader from "./src/greeting-loader";
 
 export const theme = customTheme;
 
+<L.Column>
+
 # GraphQL
+## by Jeff and Louman
+
+</L.Column>
 
 ---
 
-<L.Row>
+<L.Column>
 
-# Presenters
-## Jeff Chenn and Louman Cheung
-### 
-
-</L.Row>
-
----
-
-<p>We will be using CodeSandbox, an in-browser IDE</p>
-<p>1. Please go to https://codesandbox.io/s/github/bitprj/mdx-deck</p>
-<p>2. Click File -> Fork Sandbox</p>
+### We will be using CodeSandbox, an in-browser IDE
+### 1. Please go to https://codesandbox.io/s/github/namuol5/attendee-repo2
+### 2. Click File -> Fork Sandbox (Will require Github login)
 
 import codesandbox from '../assets/codesandbox.jpg';
 
 <img src={codesandbox} />
 
+</L.Column>
+
+
 <Notes>
-use a bit.ly link for the codesandbox link
+If everyone can go to code.sandbox and make this PREMADE template, it should automatically start a development server and you should see a website to the left. 
 
-If everyone can go to code.sandbox and make this PREMADE template (TB done), it should automatically start a development server and you should see a website to the left. 
-
-The website has a bunch of preloaded data for you so what we will do is practice running queries. After I will show you how to make a graphQL Api. 
+The website has a bunch of preloaded data for you so what we will do is practice running queries. After I will show you how to make a GraphQL API 
 </Notes>
-
----
-
-# What you'll get out of this workshop
-
-- Front End Experience
-- 2
-
----
-
-We will be using several tools
-<Steps>
--MongoDB stitch (A NoSQL DataBase)
--Gatsby
--Npm (Package Manager)
--GraphQL (Heavy Emphasis)
--Postman(?)
--JS
--React
-</Steps>
 
 ---
 
@@ -75,19 +53,25 @@ What I want to introduce everyone to is GraphQL, a a query language for API's. I
 
 ---
 
+<L.Row>
+
 # What is GraphQL?
-GraphQL is a data query 
-and manipulation language for APIs, 
-and a runtime for fulfilling queries 
-with existing data.
+### GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
+
+</L.Row>
 
 <Notes>
-In this workshop, we will be showing you how to write a schema for a graphQL API, how to query data from that API, and make use of the information. Lastly, we will be putting our skills and knowledge to the test with a word puzzle game. 
+In this workshop, we will be showing you how to query data from that API, use mutations, and make use of the information. We'll also be practicing these items through interactive activities.
 </Notes>
 
 ---
 
-# Examples/uses
+# Why GraphQL?
+
+- Allows the client to specify exactly what data to retrieve
+- Single endpoint from multiple sources
+- Describes data using a type system
+
 import graphql from '../assets/graphql.jpg';
 
 <img src={graphql} />
@@ -101,16 +85,20 @@ display data dynamically
 # GraphQL Demo
 
 <Notes>
+***switch to screen share***
+
 3-5 minutes demoing use of GraphQL
 Demo GraphiQL and explorer, querying, mutations
 </Notes>
 
 ---
 
+<L.Row>
+
 # Using GraphiQL
-GraphiQL is the GraphQL IDE
-We can access it when the site's dev server is running
-usually at http://localhost:8000/___graphql (3 underscores)
+### GraphiQL is the GraphQL IDE. We can access it when the site's dev server is running usually at http://localhost:8000/___graphql (3 underscores)
+
+</L.Row>
 
 <Notes>
 Go to your development server and add /__graphql to the end and we should get something like so pop up. 
@@ -125,13 +113,9 @@ after you construct your query, you simply can copy and paste
 
 # Basic Query
 
-<Steps>
-1. 
-2.
-3. 
-</Steps>
-
 <Notes>
+*** switch to screen share to demo GraphQL ***
+
 At its simplest, GraphQL is about asking for specific fields on 
 objects. Let's start by looking at a very simple query and 
 the result we get when we run it
@@ -139,8 +123,6 @@ query has exactly the same shape as the result.
 This is essential to GraphQL, because you always get back what 
 you expect, and the server knows exactly what fields the client 
 is asking for.
-
-*** switch to screen share to demo GraphQL ***
 
 In the website, there is a preloaded dataset for you that you can simply query from. The database is called recipe, and in the database there is a collection called movie. We can query through the list of movies and look for title and id.
 
@@ -182,7 +164,7 @@ What will be returned is 5 movies
 
 Now, let's look and wonder, what if the movie we awnt isn't on there? 
 
-We see GraphQl doesn't return anything
+We see GraphQL doesn't return anything
 
 So how can we write a query? 
 
@@ -191,21 +173,40 @@ So how can we write a query?
 ---
 
 # Interactive Activity #1
-using GraphiQL and querying
-Crossword puzzle
+# GraphiQL and Queries
+
+<Notes>
+
+now that we've learned to use GraphiQL and how to query, let's practice them
+
+in the repo we have provided, we have a crossword puzzle
+
+you will be using the provided clues and GraphiQL to solve the puzzle
+
+</Notes>
 
 ---
 
 # Mutations
 
-<Steps>
-1.
-2.
-3.
-</Steps>
-
 <Notes>
-Mutations are used to modify server-side data
+
+*** screen share to demo mutations ***
+
+We used queries to fetch data so now we will be using mutations to modify server-side data
+
+To start, let's go back to GraphiQL
+
+just like when we were building the query using the explorer, we can use the explorer find the fields
+we want to modify and then input values
+
+fields that can receive values will be in purple
+
+as we put values into the field, the expression is automatically built
+
+now we run the mutation
+
+and we can query the fields to see that the data was modified
 </Notes>
 
 ---
@@ -213,10 +214,20 @@ Mutations are used to modify server-side data
 # Activity #2
 # Mutations
 
+<Notes>
+
+pending 2nd activity completion
+
+</Notes>
+
 ---
 
+<L.Row>
+
 # Conclusion and Recap
-GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
-GraphiQL
-Query
-Mutations
+- GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
+- GraphiQL
+- Query
+- Mutations
+
+</L.Row>
