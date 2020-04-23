@@ -1,0 +1,165 @@
+import { CodeSurfer as Surfer } from "code-surfer";
+import { CodeSurferColumns, Step } from "code-surfer";
+import { Appear, Background } from "gatsby-theme-mdx-deck";
+import * as L from "../src/layout";
+import customTheme from "../src/theme";
+
+export const theme = customTheme;
+
+<!-- joey's components -->
+import Layout from '../components/Layout';
+import FlexContainer from '../components/FlexContainer';
+import FlexItem from '../components/FlexItem';
+
+
+<L.Column>
+
+# Visualizing COVID-19 with Postman
+## By Joey and Jeffrey 
+
+</L.Column>
+
+---
+
+## What is Postman?
+
+---
+
+<L.Row>
+
+## Postman
+
+### A platform for efficient API development and testing. Allows us to send requests for data, visualize responses, test code blocks, collaborate, etc.
+
+</L.Row>
+
+---
+
+import pm_icon from '../assets/pm-icon.png' // height 100
+
+<Background />
+<L.Row>
+
+## Download Postman!
+
+<img src={pm_icon}><a href='https://www.postman.com/downloads/'></a></img>
+
+</L.Row>
+
+---
+
+import pm_screen from '../assets/pm-screen.png'
+
+<Background />
+<L.Row>
+
+## Overview of Postman Interface
+
+<img src={pm_screen} height='1000px' />
+
+</L.Row>
+
+---
+
+import new_button from '../assets/new.png' // height 200 for all
+import templates from '../assets/templates.png'
+import search from '../assets/search.png'
+import howto from '../assets/howto.png'
+
+<Background />
+
+## Set up
+
+<FlexContainer>
+  <FlexItem padding='.5em'>
+    <span>Step 1</span>
+    <img src={new_button} />
+  </FlexItem>
+  <FlexItem padding='.5em'>
+    <span>Step 2</span>
+    <img src={templates} />
+  </FlexItem>
+  <FlexItem padding='.5em'>
+    <span>Step 3</span>
+    <img src={search} />
+  </FlexItem>
+  <FlexItem padding='.5em'>
+    <span>Step 4</span>
+    <img src={howto} />
+  </FlexItem>
+</FlexContainer>
+
+<Notes>
+<p>walk through steps to download the tutorial</p>
+</Notes>
+
+---
+
+import visualizer from '../assets/visualizer.png'
+
+<Background />
+<L.Row>
+
+## Add the Visualizer
+
+<img src={visualizer} />
+
+</L.Row>
+
+<Notes>
+<p>what is pm.visualizer?</p>
+<p>what is template?</p>
+<p>what is pm.response.json()?</p>
+</Notes>
+
+---
+
+import template from '../assets/template.png'
+
+<Background />
+<L.Row>
+
+## Code the Template
+
+<img src={template} />
+
+</L.Row>
+
+<Notes>
+<p>what is going on with this template?</p>
+<p>javascript handlebars, responsive, don't hard code</p>
+</Notes>
+
+---
+
+import visualize_1 from '../assets/visualize-1.png'
+
+<Background />
+<L.Row>
+
+## Visualize the Response
+
+<img src={visualize_1} />
+
+</L.Row>
+
+<Notes>
+<p>guide students to "visualize" tab at bottom of app</p>
+<p>discuss output</p>
+</Notes>
+
+---
+
+import pretty from '../assets/pretty.png'
+
+<Background />
+<L.Row>
+
+## Make it Pretty with CSS
+
+<img src={pretty} />
+
+</L.Row>
+
+---
+
