@@ -31,12 +31,12 @@ import image_2 from '../assets/image (2).png'
 
 ## Add the Line Graph
 
-### Once we pass the COVID-19 data  we can create the time series model using chart.js!
-### You would first create a canvas by calling the HTML command canvas id="myChart" with \canvas to close the HTML tab.
-### Then you would call this JavaScript command above the HTML command 
-### to initialize Chart.js library, src= "cdn.jsdelivr.net/npm/chart.js@2.8.0" (add https:// after the src command).
-### After that, you would write the JavaScript code written below between the two script parameters to form the body that passes the dates and data values of our dataset.
-### Finally you can run the code by clicking on the send button and the visulaize button and viola! We have our time series model!
+- Once we pass the COVID-19 data  we can create the time series model using chart.js!
+- You would first create a canvas by calling the HTML command canvas id="myChart" with \canvas to close the HTML tab.
+- Then you would call this JavaScript command above the HTML command 
+- to initialize Chart.js library, src= "cdn.jsdelivr.net/npm/chart.js@2.8.0" (add https:// after the src command).
+- After that, you would write the JavaScript code written below between the two script parameters to form the body that passes the dates and data values of our dataset.
+- Finally you can run the code by clicking on the send button and the visulaize button and viola! We have our time series model!
 
 
 </L.Row>
@@ -48,8 +48,7 @@ import usa_graph from '../assets/USA Graph.png'
 <Notes>
   <p> We can see here that the cases for COVID-19 have been stagnant throughout January and February, but then they start to increase
       in March. This means that as time goes on after March, the number of COVID-19 cases increase, meaning the disease is starting to
-      spread much throughout the US during this time.
-  </p>
+      spread much throughout the US during this time.</p>
     
 </Notes>
   
@@ -59,11 +58,11 @@ import usa_graph from '../assets/USA Graph.png'
 
 ## Show Time Series for another country
 
-### We saw in the previous example that we displayed the time series of COVID-19 cases in the US, but what about other countries?
-### Well, you're in luck! Notice how on the GET search bar, we already have the API key for our 
-###    dataset, covidapi.info/api/v1/country/USA, but the USA value after /country/ represents the specfic country that we selected to show the time series for.
-### Now what you can do is simply change that parameter for another country. Let's look at the rate of COVID-19 cases for. China's value is known as CHN. So you would would replace USA with CHN after the /country/ parameter like so covidapi.info/api/v1/country/CHN.
-### Once you have completed each step, you click send and visualize right after, and voila! You now have the time series model for China.
+- We saw in the previous example that we displayed the time series of COVID-19 cases in the US, but what about other countries?
+- Well, you're in luck! Notice how on the GET search bar, we already have the API key for our 
+dataset, covidapi.info/api/v1/country/USA, but the USA value after /country/ represents the specfic country that we selected to show the time series for.
+- Now what you can do is simply change that parameter for another country. Let's look at the rate of COVID-19 cases for. China's value is known as CHN. So you would would replace USA with CHN after the /country/ parameter like so covidapi.info/api/v1/country/CHN.
+- Once you have completed each step, you click send and visualize right after, and voila! You now have the time series model for China.
 
 </L.Row>
 
@@ -77,11 +76,11 @@ import china from '../assets/china.png'
 
 ## Show Time Series for another Value
 
-### We've already showed many ways of displaying time series data for COVID-19 cases for a country, but what if we ant to see it on a global scale?
-### Well you can now do that through editing the API key from the GET search bar.
-### Now if we look at the API key covidapi.info/api/v1/country/CHN, notice how the /country/ parameter focuses on the location of each country and CHN is the country, China?
-### Now what you can do is replace both parameters with /global/ to let the API key know that you want every country in the world and after that, you would /count/ for every international case of COVID-19.
-### Your API key on the GET search bar will look like this, covidapi.info/api/v1/global/count, and after clicking search and visualize, you just created another time series model for the entire world.
+- We've already showed many ways of displaying time series data for COVID-19 cases for a country, but what if we ant to see it on a global scale?
+- Well you can now do that through editing the API key from the GET search bar.
+Now if we look at the API key covidapi.info/api/v1/country/CHN, notice how the /country/ parameter focuses on the location of each country and CHN is the country, China?
+- Now what you can do is replace both parameters with /global/ to let the API key know that you want every country in the world and after that, you would /count/ for every international case of COVID-19.
+- Your API key on the GET search bar will look like this, covidapi.info/api/v1/global/count, and after clicking search and visualize, you just created another time series model for the entire world.
 
 </L.Row>
 
@@ -95,8 +94,8 @@ import global_graph from '../assets/Global Graph.PNG'
 
 ## Change of Variables for Data Types (Creating the ISO Variable)
 
-### We have seen variables in our data set to create time series models, but what if we were to change one of the variable's names entirely? Let's find out.
-### To initialize our variable, we go to the pre-request script tab. Let's name our variable as "ISO" to use the data from China. We would use the pm.variables.set() function call to intialize our variable and the first parameter would be ISO and our second parameter would be CHN. The function call will look like this, pm.variables.set("ISO", "CHN").
+- We have seen variables in our data set to create time series models, but what if we were to change one of the variable's names entirely? Let's find out.
+- To initialize our variable, we go to the pre-request script tab. Let's name our variable as "ISO" to use the data from China. We would use the pm.variables.set() function call to intialize our variable and the first parameter would be ISO and our second parameter would be CHN. The function call will look like this, pm.variables.set("ISO", "CHN").
 
 </L.Row>
 
@@ -110,8 +109,8 @@ import iso from '../assets/ISO.png'
 
 ## Change of Variables for Data Types (ISO Time Series Model)
 
-### Now once you click send and visualize, you'll notice that the model is same as China's, but the API Key has ISO instead of CHN after /country/.
-### That's because we have only redfined China's variable name as something else, but the data is exactly the same.
+- Now once you click send and visualize, you'll notice that the model is same as China's, but the API Key has ISO instead of CHN after /country/.
+- That's because we have only redfined China's variable name as something else, but the data is exactly the same.
 
 </L.Row>
 
@@ -125,8 +124,8 @@ import russel from '../assets/russel.png'
 
 ## Change of Variables for Data Types (How the Graph reads ISO's Data)
 
-### So you're wondering how the graph is reading the data from the new variable name. The answer to that is if you go to the tests tab and scroll all the way down to the bottom, you'll see the pm.visualizer.set() function call.
-### This also contains the pm.variables.get("ISO") to show how the title of the graph is defined and the pm.variables.get() function call takes all of the data from each given variable, which explains how the graph was able to read the data in the first place.
+- So you're wondering how the graph is reading the data from the new variable name. The answer to that is if you go to the tests tab and scroll all the way down to the bottom, you'll see the pm.visualizer.set() function call.
+- This also contains the pm.variables.get("ISO") to show how the title of the graph is defined and the pm.variables.get() function call takes all of the data from each given variable, which explains how the graph was able to read the data in the first place.
 
 </L.Row>
 
@@ -140,8 +139,8 @@ import iso_code from '../assets/ISO Code.png'
 
 ## Make the Datapoints have the same colors of their Country's Flag
 
-###  Now that you have seen ways to work with Postman to customize the visualization of our mathematical model, you can now give it a
-### try by making the datapoints that represents the level of COVID-19 cases per date have the same colors as the country's flag.
+-  Now that you have seen ways to work with Postman to customize the visualization of our mathematical model, you can now give it a
+try by making the datapoints that represents the level of COVID-19 cases per date have the same colors as the country's flag.
 
 </L.Row>
 
@@ -155,8 +154,8 @@ import china_before_colors from '../assets/China Colors Before.png'
 
 ## Make the Datapoints have the same colors of their Country's Flag (Changing Bullet Point Colors)
 
-### Let's do China for instance. So if we go under the test tab of Postman, we can see that the backgroundColor: and borderColor: template calls contain rgb() as the preset color template for the bullet points.
-### What we can do is replace rgb() with red() for backgroundColor: (background color for the bullet points) and yellow() for borderColor: (border color for the bullet points) like so.
+- Let's do China for instance. So if we go under the test tab of Postman, we can see that the backgroundColor: and borderColor: template calls contain rgb() as the preset color template for the bullet points.
+- What we can do is replace rgb() with red() for backgroundColor: (background color for the bullet points) and yellow() for borderColor: (border color for the bullet points) like so.
 
 </L.Row>
 
@@ -170,10 +169,10 @@ import image from '../assets/image.png'
 
 ## Make the Datapoints have the same colors of their Country's Flag (Country's Graph)
 
-### After editing that part of the code, as we run it through the console via the send button, we notice many things that are
-### different about the graph.
-### You're probably wondering where are the colors for the data points, but if you run your cursor through
-###   them towards the initial data point, you'll see that the data points are red with a yellow boarder like intended!
+- After editing that part of the code, as we run it through the console via the send button, we notice many things that are
+different about the graph.
+- You're probably wondering where are the colors for the data points, but if you run your cursor through
+them towards the initial data point, you'll see that the data points are red with a yellow boarder like intended!
 
 </L.Row>
 
@@ -187,9 +186,9 @@ import image_1 from '../assets/image (1).png'
 
 ## Make the Datapoints have the same colors of their Country's Flag (Explaining Background Color for Mathematical Model)
 
-### Another thing you're thinking about as to why is the background for the mathematical model in a dark-grey tone? The answer to that
-###  would be when you right click the graph to see the command "Inspect visualization", this page will pop up.
-### If you look at the color: section of the JavaScript code, you can see that it's preset to Black. That would mean that no matter how many times you run it, you can't change the color for the mathematical model.
+- Another thing you're thinking about as to why is the background for the mathematical model in a dark-grey tone? The answer to that
+would be when you right click the graph to see the command "Inspect visualization", this page will pop up.
+- If you look at the color: section of the JavaScript code, you can see that it's preset to Black. That would mean that no matter how many times you run it, you can't change the color for the mathematical model.
 
 </L.Row>
 
