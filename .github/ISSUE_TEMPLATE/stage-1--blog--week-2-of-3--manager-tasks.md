@@ -15,7 +15,7 @@ assignees: ''
   * [ ] Code Walkthrough
   * [ ] Interactive Component
 * [ ] Run their code for Week 2, ensure that their code can run on your computer and that their README is updated accordingly
-* [ ] "General Manager Responsibility" [checklist](https://app.gitbook.com/@bit-project/s/bit-project/~/drafts/-M5PVZ6mkgGEo9LUB4KK/teams/developer-relations/future-workshop-plan/managers-responsibilities#general-weekly-responsibilities-for-managers) should be completed 
+* [ ] "General Manager Responsibility" [checklist](https://about.bitproject.org/teams/developer-relations/future-workshop-plan/managers-responsibilities#general-weekly-responsibilities-for-managers) should be completed 
 * [ ] Generate an **Epic** issue on `bitprj/mdx-deck` for _Week 3_ with the following format: \[Topic Name\] \[Workshop Name\] Stage 1 Week \[x\] of \[y\] Dev Tasks
   * [ ] Set label as `weekly-dev`
   * [ ] Have appropriate checklist within issue

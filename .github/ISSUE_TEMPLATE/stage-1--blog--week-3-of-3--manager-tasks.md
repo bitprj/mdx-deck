@@ -19,4 +19,4 @@ assignees: ''
   * [ ] All code should be **commented with explanation** and organized in an orderly fashion
   * [ ] Code comments should relate to the blog to make the blog and code more cohesive
   * [ ] README.md file explaining how to replicate project on own machine should be fully complete
-* [ ] "General Manager Responsibility" [checklist](https://app.gitbook.com/@bit-project/s/bit-project/~/drafts/-M5PVZ6mkgGEo9LUB4KK/teams/developer-relations/future-workshop-plan/managers-responsibilities#general-weekly-responsibilities-for-managers) should be completed
+* [ ] "General Manager Responsibility" [checklist](https://about.bitproject.org/teams/developer-relations/future-workshop-plan/managers-responsibilities#general-weekly-responsibilities-for-managers) should be completed
