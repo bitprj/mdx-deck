@@ -14,7 +14,7 @@ _Each workshop must have an original, interactive component._
 _In Weeks 1-3, your duo must code out the interactive component, as well as any other code needed for the entire workshop. 
 What coding tasks do you need to complete? Each task should also come with what week each task will be completed as well as who is responsible for each task.
 Please be specific._
-_Also, you can use Week 3 to complete code deliverables. Note that this is highly **discouraged** because Week 4 is reserved for finishing touches for Stage 1._
+_Also, you can use Week 3 to complete code deliverables. Note that this is highly **discouraged** because Week 3 is reserved for finishing touches for Stage 1._
 
 - [ ]
 
