@@ -1,0 +1,76 @@
+import { CodeSurfer as Surfer } from "code-surfer";
+import { CodeSurferColumns, Step } from "code-surfer";
+import { Appear, Background } from "gatsby-theme-mdx-deck";
+import * as L from "../src/layout";
+import customTheme from "../src/theme";
+import GreetingLoader from "./src/greeting-loader";
+
+export const theme = customTheme;
+
+import i from '../images/Open-FEC-Sample-Data.jpg';
+
+# Workshop Proposal
+## Title
+Analyzing OpenFEC Finacial Trends
+---
+
+# Specific Topic
+- We are going to use the OpenFEC API Election endpoint to visualize data for total disbursements and total receipts for Presidential candidates for the last 30 elections.
+- (our example) Graph will compare this financial information over time and for both the Democratic and Republican parties. 
+- Comparing one specific data point for Democratics and Republicans from 1950-2016
+
+---
+
+# Interactive Component
+- We will have students visualize data from the same endpoint but for cash_on_hand_end_period
+- They will be using the API to record 3 specific data for each candiate during that election year into a bar graph using Chartjs.
+## Example Image
+<img src={i} />
+---
+
+# Code Deliverables
+## Week 2
+- Code out total disbursements and total receipts (Work on together)
+
+## Week 3
+- Finish up any unfinished work from week 2 + complete interactive activity (Work on together)
+
+## Week 4
+- Finish up any unfinished code from interactive activity
+- Work on presentation slides (will decide how to split up)
+
+---  
+
+# Slide Outline
+What is a general roadmap for your slides?
+- Intro to tech (Chartjs, d3js)
+- Visualize information from API and Chartjs (also explain how to get the JSON from the website)
+- Explain and present our code
+- Present interactive activity prompt
+- Conclusion and why its important
+---
+
+# Timing
+Each workshop should be around an hour to 90 minutes. How long will your workshop be?
+- An hour
+---
+
+# Motivation behind project
+What motivated your duo to pursue this idea?
+- Explored the API and searched through to find interesting information
+- The data from the API allows us to look in to how much money each candiate is spending and how much is the 'sweet spot'
+- Comparing the Democrats and Republicans, we want to figure out if money is a factor in winning.
+- Importance: Can we use information from the past to gain insight into right amount to spend on an election? Can this help us in predicting results?
+---
+
+# Explain difficulty/prior experience needed
+Is there any prior experience needed for this workshop? Please be specific.
+- Some basic experience with HTML/CSS/JavaScript would be helpful, but not neccessarily required
+---
+
+# Technologies that will be used
+- Chartjs/D3js
+- Postman
+
+
+
