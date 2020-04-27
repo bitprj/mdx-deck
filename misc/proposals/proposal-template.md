@@ -11,20 +11,20 @@ _Each workshop must have an original, interactive component._
 
 
 ### Code Deliverables
-_In Weeks 2-3, your duo must code out the interactive component, as well as any other code needed for the entire workshop. 
+_In Weeks 1-3, your duo must code out the interactive component, as well as any other code needed for the entire workshop. 
 What coding tasks do you need to complete? Each task should also come with what week each task will be completed as well as who is responsible for each task.
 Please be specific._
-_Also, you can use Week 4 to complete code deliverables. Note that this is highly **discouraged** because Week 4 is reserved for finishing touches and preparing the presentation._
+_Also, you can use Week 3 to complete code deliverables. Note that this is highly **discouraged** because Week 4 is reserved for finishing touches for Stage 1._
 
 - [ ]
 
-### Slide Outline
-_What is a general roadmap for your slides?_
+### Blog/Slide Outline
+_What is a general roadmap for your blog and slides?_
 
 * 
 
 ### Timing
-_Each workshop should be around an hour to 90 minutes. How long will your workshop be?
+_Each workshop should be around 50-60 mins. How long will your workshop be?
 
 
 
