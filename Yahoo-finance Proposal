@@ -1,0 +1,232 @@
+HOW TO  QUANT ***SECOND DRAFT***
+Gisselle Ibarra and Jose Olivas
+
+Specific Idea: 
+	Our workshop will help the user understand the relationship between the stock market and real world events. 
+Given a repository of variables present in the stock market, the user will be prompted to choose two, thus displaying accurate definitions for each. The user will then be guided through the process of fetching variable values (as parameters) throughout any period of time through the implementation of the Yahoo Finance API. The user will then be guided through the process of plotting the variable values for the different periods of time. This process can be offered with and without the use of Git. 
+
+	Interactive Component: 
+Self explanatory (see above)
+
+Code Deliverables:
+Code Deliverables are not required for week 1.
+
+Imported from GitHub:
+Pip from PyPi run commands for the installation of y-finance, matplotlib, and seaborn:
+(Pip: Package-management system used to install and manage software packages)
+(Does matplotlib have to be installed at all?)
+
+# To install yfinance before you use it.
+> pip install yfinance
+# To install yfinance before you use it.
+> pip install matplotlib
+# To install yfinance before you use it.
+> pip install seaborn
+
+Calling Ticker module to access ticker data. For a 5 day period of time(MSFT stock OHLC data):
+import yfinance as yf
+
+msft = yf.Ticker("MSFT")
+
+# get stock info
+print(msft.info)
+# get historical market data
+hist = msft.history(period="5d")
+
+Output:
+
+Date
+Open
+High
+Low
+Close
+Volume
+Dividends
+Stock Splits
+
+2020-03-16
+140.0
+149.35
+135.0
+135.42
+87905900
+0
+0
+
+2020-03-17
+140.0
+147.5
+135.0
+146.57
+81059800
+0
+0
+
+2020-03-18
+138.0
+146.0
+135.02
+140.4
+81593200
+0
+0
+
+2020-03-19
+142.77
+150.15
+139.0
+142.71
+85922700
+0
+0
+
+2020-03-20
+146.0
+147.1
+135.86
+137.35
+84796500
+0
+0
+
+History() method can also be used for various arguments.
+Example parameters:
+
+Arguments
+Scenarios
+Example value
+
+period
+date period to download
+1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max
+
+interval
+data interval. If it’s intraday data, the interval needs to be set within 60 days
+1m, 2m, 5m, 15m, 30m, 60m, 90m, 1h, 1d, 5d, 1wk, 1mo, 3mo
+
+start
+If period is not set- Download start date string (YYYY-MM-DD) or datetime
+2020-03-18
+
+end
+If period is not set - Download end date string (YYYY-MM-DD) or datetime
+2020-03-19
+
+prepost
+Boolean value to include Pre and Post market data
+Default is False
+auto_adjust
+Boolean value to adjust all OHLC
+Default is True
+actions
+Boolean value download stock dividends and stock splits events
+Default is True
+
+import matplotlib.pyplot as plt
+
+import seaborn
+
+# Plot everything by leveraging the very powerful matplotlib package
+hist['Close'].plot(figsize=(16, 9))
+
+Output:
+<img>
+
+Exporting data as CSV:
+# Download stock data then export as CSV
+data_df = yf.download("AAPL", start="2020-02-01", end="2020-03-20")
+data_df.to_csv('aapl.csv')
+
+(Financial fundamentals balance sheet not available currently)
+
+Alternative- Using Git
+
+# pip install yahoo-finance
+# git clone git://github.com/lukaszbanasiak/yahoo-finance.git
+# cd yahoo-finance
+# python setup.py install
+Available methods(Shares data):
+get_price()
+get_change()
+get_percent_change()
+get_volume()
+get_prev_close()
+get_open()
+get_avg_daily_volume()
+get_stock_exchange()
+get_market_cap()
+get_book_value()
+get_ebitda()
+get_dividend_share()
+get_dividend_yield()
+get_earnings_share()
+get_days_high()
+get_days_low()
+get_year_high()
+get_year_low()
+get_50day_moving_avg()
+get_200day_moving_avg()
+get_price_earnings_ratio()
+get_price_earnings_growth_ratio()
+get_price_sales()
+get_price_book()
+get_short_ratio()
+get_trade_datetime()
+get_historical(start_date, end_date)
+get_info()
+get_name()
+refresh()
+get_percent_change_from_year_high()
+get_percent_change_from_year_low()
+get_change_from_year_low()
+get_change_from_year_high()
+get_percent_change_from_200_day_moving_average()
+get_change_from_200_day_moving_average()
+get_percent_change_from_50_day_moving_average()
+get_change_from_50_day_moving_average()
+get_EPS_estimate_next_quarter()
+get_EPS_estimate_next_year()
+get_ex_dividend_date()
+get_EPS_estimate_current_year()
+get_price_EPS_estimate_next_year()
+get_price_EPS_estimate_current_year()
+get_one_yr_target_price()
+get_change_percent_change()
+get_dividend_pay_date()
+get_currency()
+get_last_trade_with_time()
+get_days_range()
+get_year_range()
+Available methods(Currency data):
+get_bid()
+get_ask()
+get_rate()
+get_trade_datetime()
+refresh()
+
+
+Slide Outline:
+Slides, in order:
+Specific Topic- What our will workshop be about 
+Slide Outline- Follows template exactly 
+Timing- (see below)
+Motivation behind project- (see below)
+Difficulty/Prior experience- Prior experience needed in human centered design (see below)
+Technologies that will be used- (see below)
+
+
+Timing:
+	This technical website for this project will be completed by the end of the 3rd week.
+
+
+Motivation Behind Project: 
+	The coding portion of this process will serve to guide the user through the process of implementing APIs through code. Using the recent COVID-19 pandemic, the user will plot variables against any time period within 1/1/2020-5/1/2020.
+
+
+Difficulty/Prior Experience:
+	This project is expected to be moderately challenging to implement. Implementing basic APIs is not very difficult, and this is the centerpiece for our interactive component.
+	However, several human-centered design concepts are demanded in the process of implementing user-interface. Still, only basic interactive coding is required.
+
+
+Technologies to be Used: 
+	Python, Github, Git
