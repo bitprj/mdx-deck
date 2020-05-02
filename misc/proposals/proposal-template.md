@@ -31,6 +31,7 @@ These will be come up with soon...
 
 ### Blog/Slide Outline
 _What is a general roadmap for your blog and slides?_
+
 1.Intro (title)
 2.Basic financial concepts that have the ability to change stock prices
 3.Demonstration of current drops in 3 major stock market companies (demonstrate graphics just incase user is unaware)
