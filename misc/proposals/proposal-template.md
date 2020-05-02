@@ -2,6 +2,7 @@
 
 ### Specific Topic
 _What will your workshop be about?_
+
 The Stock Market experiences constant changes. Stock prices normally are subject to change but in today's current pandemic the Stock Market has seen record breaking drops on all fronts.
 	
 Today, as the world faces one of the largest pandemics in history we have been able to see record breaking drops in all 3 major stock market companies. As demonstrated in the graphics below, S&P 500 Index, Dow Jones and Nasdaq have experienced a downward spike amidst the Covid-19 pandemic. 
