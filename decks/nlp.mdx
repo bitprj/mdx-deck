@@ -1,0 +1,137 @@
+import { CodeSurfer as Surfer } from "code-surfer";
+import { CodeSurferColumns, Step } from "code-surfer";
+import { Appear, Background } from "gatsby-theme-mdx-deck";
+import * as L from "../src/layout";
+import customTheme from "../src/theme";
+import GreetingLoader from "./src/greeting-loader";
+
+export const theme = customTheme;
+
+<L.Column>
+
+# Natural Language Processing
+
+</L.Column>
+
+---
+
+<L.Row>
+
+## What is NLP?
+
+### "It is broadly defined as the automatic manipulation of natural language, like speech and text by software."
+
+### "Or simply put, NLP is why Alexa, Siri and many other chatbots understand us!"
+
+
+</L.Row>
+
+---
+
+<L.Column>
+
+## Where else is NLP applied?
+
+- Information Extraction --> Sentiment Analysis
+- Machine Translation 
+- Text Classification
+
+</L.Column>
+
+---
+
+<Background />
+
+### "Okay. If we already have conversational agents like Alexa, why study NLP now?"
+
+---
+
+<Background />
+
+### To understand how the hard problems are solved using NLP!
+
+---
+
+<L.Column>
+
+## Really Hard Problems
+
+- Question Answering
+- Paraphrase
+- Summarization
+- Dialog
+
+</L.Column>
+
+---
+
+<L.Row>
+
+## NLP has been around for 40 years.
+
+### The advent of information era, led to rapid developments in the field. 
+
+</L.Row>
+
+---
+
+<L.Column>
+
+## Before Deep Learning
+
+### The following techniques were used for the machines to understand the language.
+- Syntax (POS Tagging, Named Entity Recognition)
+- Semantics (Semantic Role Labelling)
+- Dialogs (Dialog Act Tagging)
+
+</L.Column>
+
+---
+import posimg from '../assets/POS_Tagging.png';
+
+<L.Row>
+
+## Syntax
+
+### Syntax is how words combine into sentences as governed by rules of the language. POS tagging allows to tag each word in the sentence with a predefined tag. 
+
+</L.Row>
+
+<img src={posimg} />
+
+---
+
+import srlimg from '../assets/srl.png';
+
+<L.Row>
+
+## Semantics
+
+### Semantics define meaning of words and constituents. Semantic Role Labelling  helps in target, frame and argument identification. 
+
+</L.Row>
+
+<img src={srlimg} />
+
+---
+
+import dlgimg from '../assets/dlg.png';
+
+<L.Row>
+
+## Dialogs
+
+### Conversation between two or more people (interlocutors). 
+
+</L.Row>
+
+<img src={dlgimg} />
+
+---
+
+
+<L.Column>
+
+## Deep Learning's advent in NLP has helped in getting closer to the conversational NLP.
+
+</L.Column>
