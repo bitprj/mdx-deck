@@ -53,7 +53,7 @@ We define a **basket** as a small subset of items, for example, the products whi
 Given a support threshold *'s'*, sets of items that appear in at least *s* baskets are called as **frequent item sets**. In this example, let us assume the support threshold is 3.
 We will count the frequency of the singleton set, i.e. a single item and decide which of them can be included in the frequent item sets.
 
-|Item| Count|
+|Item| Count/Support|
 |---|---|
 |M|5|
 |C|5|
@@ -86,7 +86,7 @@ In the script above we import pandas, numpy, apriori and association_rules libra
 
 Some audiences may encounter problems like missing modules. To solve, simply install the libraries using ``` pip install <library name> ``` or follow the instructions given in the documentations of the respective libraries to install the required components.
 
-##### **Importing the Dataset**
+##### Importing the Dataset
 
 Now let's import the dataset and see what we are working with. Download the dataset and place it in the *data* folder  and execute the following script:
 
@@ -109,7 +109,7 @@ data.head()
 
 The data frame will look like this:
 
-![data_head output](/Images/data_head.png)
+![data_head output](/images/data_head.png)
 
 To check if we are on the right track, we can look at the number of rows and columns in the data and verify it with the actual numbers. 
 
@@ -119,7 +119,7 @@ data.shape
 
 The output should be (1067371, 8).
 
-##### **Data Pre-processing**
+##### Data Pre-processing
 
 For the data to be of the same format, we strip the *Description* column of extra spaces while converting it to string type.
 
@@ -136,7 +136,7 @@ data = data[~data['Invoice'].str.contains('C')]
 
 In this code snippet, we convert the *Invoice* column into string type before finding if it contains a 'C'.
 
-##### **Applying Apriori Algorithm**
+##### Applying Apriori Algorithm
 
 The next step is to apply the Apriori algorithm on the dataset. To do so, we can use the apriori function that we imported from the *mlxtend* library.
 
@@ -192,7 +192,7 @@ Let us see how the rules table looks. Execute the following code and you should 
 rules.head(6)
 ```
 
-![rules_head output](/Images/rules_head.png)
+![rules_head output](/images/rules_head.png)
 
 For example, here it shows that if a customer in USA buys a *Mini Paint Set Vintage*, he/she will most likely buy *60 Cake Cases Dolly Girl Design*.
 
@@ -203,15 +203,17 @@ You can try this for other countries and find interesting association rules whil
 ## Conclusion
 
 * Audiences are able to understand the basic concept of association mining
-* Audiences are able to know how to implement the basic association mining instance with Apriori Algorithm in Python
-
+* Audiences are able to know how to implement the basic association mining instance with Apriori Algorithm in Python which includes: 
 1. Correctly import the dataset
 2. Understanding the dataset
 3. Preprocessing the dataset
 4. Implementing Apriori Algorithm
 5. Evaluation of the model
-
 * Use of association mining in the real world to boost the businesses, especially retail sellers
 * Audiences may extend their thinkings of association mining in a broader way and fields, such as internet ads, promotional discounts, etc
 
-Apriori algorithm is very useful for finding simple correlations between the data items. It is easy to implement and is simple to understand. 
+Apriori algorithm is very useful for finding simple correlations between the data items. It is easy to implement and is simple to understand. However, for more faster algorithms, more complex algorithms such as [SON algorithm](https://smartech.gatech.edu/bitstream/handle/1853/6678/GIT-CC-95-04.pdf?sequence=1&isAllowed=y) and [FP-Growth](https://en.wikipedia.org/wiki/Association_rule_learning#FP-growth_algorithm) algorithms are used.
+
+#### References
+1. Association Rule Mining via Apriori Algorithm in Python. [https://stackabuse.com/association-rule-mining-via-apriori-algorithm-in-python/](https://stackabuse.com/association-rule-mining-via-apriori-algorithm-in-python/)
+2. Montana Tech CSCI347 Jupyter Notebook and Association Rules. [https://katie.mtech.edu/classes/csci347/Schedule/hm03_ans.pdf](https://katie.mtech.edu/classes/csci347/Schedule/hm03_ans.pdf)
