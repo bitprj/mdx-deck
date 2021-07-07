@@ -1,0 +1,233 @@
+import { CodeSurfer as Surfer } from "code-surfer";
+import { CodeSurferColumns, Step } from "code-surfer";
+import { Appear, Background } from "gatsby-theme-mdx-deck";
+import * as L from "../src/layout";
+import customTheme from "../src/theme";
+import GreetingLoader from "./src/greeting-loader";
+
+export const theme = customTheme;
+
+<L.Column>
+
+# GraphQL
+## by Jeff and Louman
+
+</L.Column>
+
+---
+
+<L.Column>
+
+### We will be using CodeSandbox, an in-browser IDE
+### 1. Please go to https://codesandbox.io/s/github/namuol5/attendee-repo2
+### 2. Click File -> Fork Sandbox (Will require Github login)
+
+import codesandbox from '../assets/codesandbox.jpg';
+
+<img src={codesandbox} />
+
+</L.Column>
+
+
+<Notes>
+If everyone can go to code.sandbox and make this PREMADE template, it should automatically start a development server and you should see a website to the left. 
+
+The website has a bunch of preloaded data for you so what we will do is practice running queries. After I will show you how to make a GraphQL API 
+</Notes>
+
+---
+
+# What are API's and why are they important? 
+
+<Notes>
+SN: An API is essentially an endpoint in which we can make a request to retrieve data. 
+
+If you are familiar with API's, I'm sure you've used fetch and axios to retrieve data from API's, The syntax looks something like this and its a lot to type out. 
+
+You get a bunch of data and now its up to you to parse through it.
+
+But what if there was an easier way? 
+
+What I want to introduce everyone to is GraphQL, a a query language for API's. In essence, graphQL allows us to format our data exactly how we want it, query for specific data, and then get an easy return value. 
+</Notes>
+
+---
+
+<L.Row>
+
+# What is GraphQL?
+### GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
+
+</L.Row>
+
+<Notes>
+In this workshop, we will be showing you how to query data from that API, use mutations, and make use of the information. We'll also be practicing these items through interactive activities.
+</Notes>
+
+---
+
+# Why GraphQL?
+
+- Allows the client to specify exactly what data to retrieve
+- Single endpoint from multiple sources
+- Describes data using a type system
+
+import graphql from '../assets/graphql.jpg';
+
+<img src={graphql} />
+
+<Notes>
+display data dynamically
+</Notes>
+
+---
+
+# GraphQL Demo
+
+<Notes>
+***switch to screen share***
+
+3-5 minutes demoing use of GraphQL
+Demo GraphiQL and explorer, querying, mutations
+</Notes>
+
+---
+
+<L.Row>
+
+# Using GraphiQL
+### GraphiQL is the GraphQL IDE. We can access it when the site's dev server is running usually at http://localhost:8000/___graphql (3 underscores)
+
+</L.Row>
+
+<Notes>
+Go to your development server and add /__graphql to the end and we should get something like so pop up. 
+
+use GraphiQL to explore and see all the data you have access to
+you can interactively construct full queries by clicking through
+available fields and inputs
+after you construct your query, you simply can copy and paste
+</Notes>
+
+---
+
+# Basic Query
+
+<Notes>
+*** switch to screen share to demo GraphQL ***
+
+At its simplest, GraphQL is about asking for specific fields on 
+objects. Let's start by looking at a very simple query and 
+the result we get when we run it
+query has exactly the same shape as the result. 
+This is essential to GraphQL, because you always get back what 
+you expect, and the server knows exactly what fields the client 
+is asking for.
+
+In the website, there is a preloaded dataset for you that you can simply query from. The database is called recipe, and in the database there is a collection called movie. We can query through the list of movies and look for title and id.
+
+And as I told you, the result comes back in a very clean and crisp manner like so. 
+
+However, our database has more than just one movie in it. In fact, if I change the query to...
+
+We get a bunch of movies! 
+
+Now that we understand a query, a question you might have is, "How do I know what to search for". In fact, when designing graphql, we can choose to format our data exactly the way we want to but that will be covered when talking about making a graphQL api. 
+
+For now, let's take the opportunity to explore the graphQL docs! 
+
+Click the docs arrow right over here! 
+
+We get a bunch of databases like so! These were preloaded into the website built for you, but the collection we really care about is 
+
+If we click on it, we will see all the collections that fall under recipe 
+
+In other words, we can search through all these minicollections. As you can see, there is an s following each type of database and this is just to signify that we want multiple entries, not just one. Let's examine further and click on movies. 
+
+Well, we get to examine all the type entries. Notice the yellow text to teach type entry. This signifies the type of data that will be returned. If we take a look at title, we see the returned datatype is a string. This means it requires no parameters and when querying we can simply stop at title.
+
+However, if we look at something like imdb 
+
+The returned datatype is Recipe_MovieImdb, which is not a primary datatype. In fact, if we click on it and expand it further 
+
+We see id, rating, votes, and we can stop our query from here. 
+
+Now that you understand how queries ask, you might ask, what if we are looking for something specific in a database? Sure we can search for all the movies, but its kinda a pain to scroll right? Well, no worries. We can  query for exactly what we want! 
+
+If we take a look at our movies, it shows us the exact parameters we can look for. 
+
+And now we can look exactly for what we want. Well everyone loves John Wick right so lets try querying by title. 
+
+Here is the returned data. Exactly what we are looking for. We can also use limit and sort as well.
+
+What will be returned is 5 movies 
+
+Now, let's look and wonder, what if the movie we awnt isn't on there? 
+
+We see GraphQL doesn't return anything
+
+So how can we write a query? 
+
+</Notes>
+
+---
+
+# Interactive Activity #1
+# GraphiQL and Queries
+
+<Notes>
+
+now that we've learned to use GraphiQL and how to query, let's practice them
+
+in the repo we have provided, we have a crossword puzzle
+
+you will be using the provided clues and GraphiQL to solve the puzzle
+
+</Notes>
+
+---
+
+# Mutations
+
+<Notes>
+
+*** screen share to demo mutations ***
+
+We used queries to fetch data so now we will be using mutations to modify server-side data
+
+To start, let's go back to GraphiQL
+
+just like when we were building the query using the explorer, we can use the explorer find the fields
+we want to modify and then input values
+
+fields that can receive values will be in purple
+
+as we put values into the field, the expression is automatically built
+
+now we run the mutation
+
+and we can query the fields to see that the data was modified
+</Notes>
+
+---
+
+# Activity #2
+# Mutations
+
+<Notes>
+
+pending 2nd activity completion
+
+</Notes>
+
+---
+
+<L.Row>
+
+# Conclusion and Recap
+- GraphQL is a data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data.
+- GraphiQL
+- Query
+- Mutations
+
+</L.Row>
