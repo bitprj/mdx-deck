@@ -1,0 +1,346 @@
+import { CodeSurfer as Surfer } from "code-surfer";
+import { CodeSurferColumns, Step } from "code-surfer";
+import { Appear, Background } from "gatsby-theme-mdx-deck";
+import * as L from "../src/layout";
+import customTheme from "../src/theme";
+import GreetingLoader from "./src/greeting-loader";
+import "prismjs/components/prism-python";
+export const theme = customTheme;
+
+# Visualizing COVID-19 Data with Python + Google Colab!
+
+* Analyzing Bar charts
+* Wrangling with Pandas
+
+---
+
+# Getting set up
+
+- Search for Google Colab and click on first link 
+- File/New Notebook
+- Sign into your Google account
+
+---
+# Initialize Notebook With Required Packages
+
+```python
+import pandas as pd
+import plotly.express as px
+```
+---
+
+# Where to find data?
+
+- Navigate to: 
+
+```python 
+link = 'https://github.com/
+  CSSEGISandData/
+  COVID-19/raw/master/
+  csse_covid_19_data/
+  csse_covid_19_daily_reports/
+  04-17-2020.csv'
+```
+
+Click "+ code " on the upper left corner to create a new code chunk under
+
+Copy and paste the entire block above into the same code chunk in the colab.
+
+
+
+---
+
+# Reading in data
+
+```python
+
+world = pd.read_csv(link)  #read in csv via link
+world.head() #lists the top 5 rows
+```
+---
+
+
+```python
+link = 'https://github.com/CSSEGISandData/
+        COVID-19/raw/master/
+        csse_covid_19_data/
+        csse_covid_19_daily_reports/
+        04-17-2020.csv'
+
+world = pd.read_csv(link)  #read in csv via link
+world.head() #lists the top 5 rows
+```
+
+|....|FIPS|Admin2|Province_State|Country_Region|...|Confirmed|...|Active|...|Combined_Key
+|----|----|------|--------------|--------------|---|---------|---|------|---|------------
+|0   |45001.0|Abbeville|South Carolina|US|...|10|...|10|...|Abbeville, South Carolina, US
+|1   |22001.0|Acadia	|Louisiana	|US|...|110|...|104|...|Acadia, Louisiana, US
+|:|:|:|:|:|:|:|:|:|:|:
+|4  |19001.0|Adair	|Iowa	|US|...|1|...|1|...|Adair, Iowa, US
+
+---
+
+# Selecting Columns 
+
+- Create a new code chunk 
+
+```python
+world['FIPS'] # selects the first column
+world.Confirmed # selected the 'Confirmed' column
+```
+---
+# Practice with Pandas
+
+- Use pd.sum() find the overall sum by selecting 'Confirmed'
+
+---
+# Practice with Pandas
+
+- Use pd.sum() find the overall sum by selecting 'Confirmed'
+
+```python
+world.Confirmed.sum() #240191
+```
+---
+
+# US Sum
+
+- Use pd.sum() and the '==' operator 
+- find the overall confirmed sum for 'US'
+
+```python
+dataframe[dataframe.Column == 'target'].sum()
+```
+
+---
+
+# US Sum
+
+- Use pd.sum() and the '==' operator 
+- find the overall confirmed sum for 'US'
+
+```python
+world[world.Country_Region == 'US'].Confirmed.sum() #699706
+```
+---
+
+# Spain Sum
+
+- Use pd.sum() and the '==' operator 
+- find the overall confirmed sum for 'Spain'
+
+---
+
+# Spain Sum
+
+- Use pd.sum() and the '==' operator 
+- find the overall confirmed sum for 'Spain'
+
+
+```python
+world[world.Country_Region == 'Spain'].Confirmed.sum() #190839
+```
+---
+
+# Grouping by Country
+
+- Create a new code chunk
+
+```python
+ world.groupby('Country_Region')
+```
+
+
+---
+
+# Grouping by country
+
+```python
+ world.groupby('Country_Region')
+
+ #<pandas.core.groupby.generic.DataFrameGroupBy object at 0x7faba573bc50>
+```
+---
+# Grouping by country and selecting 'Confirmed'
+
+```python
+world.groupby('Country_Region').Confirmed
+
+#<pandas.core.groupby.generic.SeriesGroupBy object at 0x7faba6766c18>
+```
+---
+# Summing up confirmed cases by country
+
+```python
+world.groupby('Country_Region').Confirmed.sum()
+```
+
+
+Country_Region|
+--------------|---
+Afghanistan|906
+Albania| 539
+:|:
+Zimbabwe|24
+Name: Confirmed, Length:| 185, dtype: int64
+
+
+---
+# Reformatting
+
+Turn previous output into a Pandas df
+
+```python
+world.groupby('Country_Region').Confirmed.sum().reset_index()
+```
+
+
+---
+
+# save output to a variable
+
+```python
+grouped_countries = world.groupby('Country_Region').Confirmed.sum().reset_index()
+```
+---
+
+# show top 5 rows
+
+```python
+grouped_countries = world.groupby('Country_Region').Confirmed.sum().reset_index()
+grouped_countries.head()
+```
+
+|....|Country_Region|Confirmed
+|----|--------------|---------
+|0   |Afghanistan|906
+|1   |Albania	|539
+|:|:|
+|4  |Angola	|19
+
+---
+# Bar Chart for group_countries
+```python
+fig = px.bar(grouped_countries,   #plots all n rows
+              x='Country_Region', 
+              y='Confirmed',
+            color= 'Confirmed')
+fig.show()
+```
+---
+
+# Bar Chart for group_countries.head()
+```python
+fig = px.bar(grouped_countries.head(),  #plots top 5 rows in default order
+              x='Country_Region', 
+              y='Confirmed',
+            color= 'Confirmed')
+fig.show()
+```
+---
+
+# What if I wanted to see different order?
+
+- Create a new code chunk
+
+```python
+sorted_countries = grouped_countries.sort_values('Confirmed',ascending=False)
+
+fig = px.bar(sorted_countries.head(),  #plots top 5 rows in descending order
+              x='Country_Region', 
+              y='Confirmed',
+            color= 'Confirmed')
+
+fig.show()
+```
+---
+
+# Select specefic countries to plot
+
+- Create a new code chunk
+
+```python
+list = ['US','Turkey','Russia','Japan','Germany']
+```
+
+---
+# Comparing to grouped df
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+grouped_countries.Country_Region.isin(list)
+```
+---
+# if True, return that row
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+grouped_countries.loc[grouped_countries.Country_Region.isin(list)]
+```
+---
+# Save output to a variable
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+selected_groups = grouped_countries.loc[grouped_countries.Country_Region.isin(list)]
+selected_groups
+```
+
+|....|Country_Region|Confirmed
+|----|--------------|---------
+|0   |Canada|32814
+|1   |China	|83760
+|:|:|
+|4  |US	|699706
+---
+
+# Sort the dataframe
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+selected_groups = grouped_countries.loc[grouped_countries.Country_Region.isin(list)]
+selected_groups.sort_values('Confirmed',ascending = False) #sort in descending order
+```
+
+|....|Country_Region|Confirmed
+|----|--------------|---------
+|0   |US|699706
+|1   |Italy	|172434
+|:|:|
+|4  |Canada	|32814
+---
+
+# Save to a variable
+
+```python
+list = ['US','China','Italy','France','Canada']
+
+selected_groups = grouped_countries.loc[grouped_countries.Country_Region.isin(list)]
+sorted_conf = selected_groups.sort_values('Confirmed',ascending = False)
+```
+
+|....|Country_Region|Confirmed
+|----|--------------|---------
+|0   |US|699706
+|1   |Italy	|172434
+|:|:|
+|4  |Canada	|32814
+---
+
+# Bar Chart for sorted_conf
+```python
+fig = px.bar(sorted_conf, 
+              x='Country_Region', 
+              y='Confirmed',
+            color= 'Confirmed')
+fig.show()
+```
+---
+
+# That's it! Easy huh?
+
+Code used for this tutorial can be found [here](https://colab.research.google.com/drive/1O4kiZofDz31a5eM_v_o_LolPjBHUhqG3)
